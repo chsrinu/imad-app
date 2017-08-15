@@ -18,21 +18,37 @@ app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname,'ui','article-two.html'))
 });*/
 var articles={
-    'article-one':'article-one.html',
-    'article-two':'article-two.html'
+    articleone:`title=Article One
+                content=Hi I am Article one from India`,
+                
+    articletwo:`title=Article Two
+                content=Hi I am Article two from US`
 }
 
 
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
-    console.log('hello');
-    res.sendFile(path.join(__dirname,'ui',articles[article_name]))
+    res.sned(createtemplate(articles[article_name]))
 })
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+function createtemplate(data)
+{
+    var title=data.title;
+    var content=data.content
+    var htmltemplate= `<html>
+    <head>
+        <title>${title}</title>
+    </head>
+<body class='articles'>
+    <h1>${content}</h1>
+</body>
 
+</html>`
+return htmltemplate;
+}
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
