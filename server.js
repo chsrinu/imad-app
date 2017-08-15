@@ -18,9 +18,9 @@ app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname,'ui','article-two.html'))
 });*/
 var articles={
-    articleone:{title:'Article One'
+    articleone:{title:'Article One',
                 content:'Hi I am Article one from India'},
-    articletwo:{title:'Article Two'
+    articletwo:{title:'Article Two',
                 content:'Hi I am Article two from US'}
 }
 
@@ -45,7 +45,7 @@ function createtemplate(data)
     <h1>${content}</h1>
 </body>
 
-</html>`
+</html>`;
 return htmltemplate;
 }
 // Do not change port, otherwise your app won't run on IMAD servers
