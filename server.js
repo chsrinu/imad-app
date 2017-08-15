@@ -17,14 +17,14 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname,'ui','article-two.html'))
 });*/
+var articles={
+    'article-one':'article-one.html',
+    'article-two':'article-two.html'
+}
 
-var articles[]=[
-  {'article_one':'article-one.html'},
-  {'article_two':'article-two.html'}
-];
 
 app.get('/:article_name',function(req,res){
-    var article_name=req.params.article_name;
+    var article_name=req.params.article_name
     res.sendFile(__dir,'ui',articles[article_name])
 })
 app.get('/ui/madi.png', function (req, res) {
