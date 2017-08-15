@@ -37,14 +37,15 @@ function createtemplate(data)
 {
     var title=data.title;
     var content=data.content
-    var htmltemplate= `<html>
+    var htmltemplate= 
+`<html>
     <head>
         <title>${title}</title>
+        <link href="ui/style.css" rel="stylesheet"/>
     </head>
-<body class="articles">
-    <h1>${content}</h1>
-</body>
-
+    <body class="articles">
+        <h1>${content}</h1>
+    </body>
 </html>`;
 return htmltemplate;
 }
