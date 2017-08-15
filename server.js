@@ -18,10 +18,10 @@ app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname,'ui','article-two.html'))
 });*/
 
-var articles[]={
-  'article_one':'article-one.html',
-  'article_two':'article-two.html'
-};
+var articles[]=[
+  {'article_one':'article-one.html'},
+  {'article_two':'article-two.html'}
+];
 
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
