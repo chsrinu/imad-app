@@ -25,7 +25,7 @@ var articles={
 
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
-    console.log("hello ");
+    console.log('hello');
     res.sendFile(path.join(__dirname,'ui',articles[article_name]))
 })
 app.get('/ui/madi.png', function (req, res) {
