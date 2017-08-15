@@ -41,7 +41,7 @@ function createtemplate(data)
     <head>
         <title>${title}</title>
     </head>
-<body class='articles'>
+<body class="articles">
     <h1>${content}</h1>
 </body>
 
