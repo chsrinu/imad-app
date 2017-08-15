@@ -24,6 +24,7 @@ var articles[]={
 };
 
 app.get('/:article_name',function(req,res){
+    var article_name=req.params.article_name
     res.sendFile(__dir,'ui',articles[article_name])
 })
 app.get('/ui/madi.png', function (req, res) {
