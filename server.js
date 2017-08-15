@@ -24,7 +24,7 @@ var articles={
 
 
 app.get('/:article_name',function(req,res){
-    var article_name=req.params.article_name
+    var article_name=req.params.article_name;
     alert("I am an alert box!");
     res.sendFile(path.join(__dirname,'ui',articles[article_name]))
 })
