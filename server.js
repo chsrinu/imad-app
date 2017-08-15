@@ -18,11 +18,10 @@ app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname,'ui','article-two.html'))
 });*/
 var articles={
-    articleone:`title=Article One
-                content=Hi I am Article one from India`,
-                
-    articletwo:`title=Article Two
-                content=Hi I am Article two from US`
+    articleone:{title:'Article One'
+                content:'Hi I am Article one from India'},
+    articletwo:{title:'Article Two'
+                content:'Hi I am Article two from US'}
 }
 
 
