@@ -2,10 +2,12 @@
 console.log('Loaded!');
 
 var myi=document.getElementById("b");
+var leftmargin=0;
  function anim(){
      
      console.log("anim");
-     myi.style.marginLeft+=100+'px';
+     leftmargin=leftmargin+10+'px';
+     myi.style.marginLeft+=leftmargin;
      console.log(myi.style.marginLeft);
  }
  
