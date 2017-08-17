@@ -23,6 +23,9 @@ var articles={
     articletwo:{title1:'Article Two',
                 content:'Hi I am Article two from US'}
 }
+app.get('ui/main.js', function(req, res){
+   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
 
 
 app.get('/:article_name',function(req,res){
