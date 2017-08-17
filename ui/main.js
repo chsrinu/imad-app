@@ -9,7 +9,7 @@ var leftmargin=0;
      leftmargin=leftmargin+10;
      myi.style.marginLeft=leftmargin+'px';
      console.log(myi.style.marginLeft);
-     if(leftmargin>='1200px')
+     if(leftmargin>='1200')
      {
         leftmargin=0+'px'; 
      }
