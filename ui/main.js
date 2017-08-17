@@ -5,7 +5,7 @@ var myi=document.getElementById("b");
  function anim(){
      
      
-     myi.style.marginLeft+=10+'px';
+     myi.style.marginLeft+=100+'px';
      console.log(myi.style.marginLeft);
  }
  
