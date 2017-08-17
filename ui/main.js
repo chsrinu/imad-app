@@ -11,7 +11,7 @@ var myi=document.getElementById("b");
  
  
  
-myi.onclick= function(){
+myi.onClick= function(){
    setInterval(anim,100);
 }
 
