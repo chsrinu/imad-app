@@ -18,7 +18,7 @@ app.get('/article-two',function(req,res){
     res.sendFile(path.join(__dirname,'ui','article-two.html'))
 });*/
 var articles={
-    articleone:{title:'Article One',
+    articleone:{title1:'Article One',
                 content:'Hi I am Article one from India'},
     articletwo:{title:'Article Two',
                 content:'Hi I am Article two from US'}
@@ -35,12 +35,12 @@ app.get('/ui/madi.png', function (req, res) {
 
 function createtemplate(data)
 {
-    var title=data.title;
+    var title1=data.title;
     var content=data.content
     var htmltemplate= 
 `<html>
     <head>
-        <title>${title}</title>
+        <title>${title1}</title>
         <link href="ui/style.css" rel="stylesheet"/>
     </head>
     <body class="articles">
