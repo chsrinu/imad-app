@@ -1,7 +1,7 @@
 
 console.log('Loaded!');
 
-var myi=document.getElementById("id");
+var myi=document.getElementById("b");
  function anim(){
      
      
