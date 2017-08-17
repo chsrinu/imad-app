@@ -11,8 +11,9 @@ var myi=document.getElementById("b");
  
  
  
-myi.onClick= function(){
-   setInterval(anim,100);
+myi.onclick= function(){
+   var interval=setInterval(anim,100);
+   console.log(interval);
 };
 
 
