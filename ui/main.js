@@ -5,8 +5,8 @@ console.log('Loaded!');
 
 $("#b").click(function() {
    
- var img1=document.getElementbyid("#b");
- alert(img1.src);
+ var img1=document.getElementById("#b");
+img1.style.marginLeft+=1000+'px';
  
 });
 
