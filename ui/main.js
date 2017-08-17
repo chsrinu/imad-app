@@ -3,9 +3,9 @@ console.log('Loaded!');
 
 
 
-$("#b").click(function() {
+$("b").click(function() {
    
- var img1=document.getElementById("#b");
+ var img1=document.getElementById("b");
 img1.style.marginLeft+=1000+'px';
  
 });
