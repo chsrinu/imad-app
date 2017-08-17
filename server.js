@@ -8,6 +8,10 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+app.get('ui/main.js', function(req, res){
+   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
@@ -22,10 +26,8 @@ var articles={
                 content:'Hi I am Article one from India'},
     articletwo:{title1:'Article Two',
                 content:'Hi I am Article two from US'}
-}
-app.get('ui/main.js', function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
+};
+
 
 
 app.get('/:article_name',function(req,res){
