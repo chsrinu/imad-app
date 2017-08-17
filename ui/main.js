@@ -7,7 +7,7 @@ var main=function(){
     $("#b").click(function() {
    alert("clicked");
 
-$('#b').animate({left:"1000px"},1000);
+$('#b').animate({right:"1000px"},1000);
   
 });
 };
