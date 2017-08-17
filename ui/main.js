@@ -2,9 +2,7 @@
 console.log('Loaded!');
 
 
-var marginleft=0;
-$(".img-medium").click(function() {
-   alert("clicked");
-  $("img").animate({left:"+=200px"},1000);
- 
+$(document).ready(function() {
+    $("#b").animate({left: "+=500"}, 2000);
+    $("#b").animate({left: "-=300"}, 1000);
 });
