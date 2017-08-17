@@ -35,7 +35,7 @@ app.get('/ui/madi.png', function (req, res) {
 
 function createtemplate(data)
 {
-    var title1=data.title;
+    var title1=data.title1;
     var content=data.content
     var htmltemplate= 
 `<html>
