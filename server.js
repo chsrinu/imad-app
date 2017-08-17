@@ -20,7 +20,7 @@ app.get('/article-two',function(req,res){
 var articles={
     articleone:{title1:'Article One',
                 content:'Hi I am Article one from India'},
-    articletwo:{title:'Article Two',
+    articletwo:{title1:'Article Two',
                 content:'Hi I am Article two from US'}
 }
 
