@@ -35,16 +35,16 @@ app.get('/ui/madi.png', function (req, res) {
 
 function createtemplate(data)
 {
-    var title1=data.title1;
-    var content=data.content
+    var Atitle=data.title1;
+    var Acontent=data.content
     var htmltemplate= 
 `<html>
     <head>
-        <title>${title1}</title>
+        <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
     </head>
     <body class="articles">
-        <h1>${content}</h1>
+        <h1>${Acontent}</h1>
     </body>
 </html>`;
 return htmltemplate;
