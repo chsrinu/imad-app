@@ -6,7 +6,7 @@ var leftmargin=0;
  function anim(){
      
      console.log("anim");
-     leftmargin=leftmargin+10+'px';
+     leftmargin=leftmargin+10;
      myi.style.marginLeft=leftmargin+'px';
      console.log(myi.style.marginLeft);
  }
