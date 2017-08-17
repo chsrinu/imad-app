@@ -13,7 +13,7 @@ var myi=document.getElementById("b");
  
 myi.onClick= function(){
    setInterval(anim,100);
-}
+};
 
 
 
