@@ -11,7 +11,7 @@ var leftmargin=0;
      console.log(myi.style.marginLeft);
      if(myi.style.marginLeft>='1200px')
      {
-        myi.style.marginLeft=0+'px' 
+        leftmargin=-1200+'px'; 
      }
  }
  
