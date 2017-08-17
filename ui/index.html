@@ -3,6 +3,12 @@
     <head>
         <link href="/ui/style.css" rel="stylesheet" />
         
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'>
+            $(document).ready(function() {
+             $("#b").animate({left: "+=500"}, 2000);
+             $("#b").animate({left: "-=300"}, 1000);
+});
+        </script>
     </head>
     <body>
         <div class="center">
@@ -13,7 +19,7 @@
             Hi! I am your webapp for today
             <p id="counter"></p>
         </div>
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+        
         <script src="/ui/main.js"></script>
         
       
