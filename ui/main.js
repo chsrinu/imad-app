@@ -15,9 +15,7 @@ var leftmargin=0;
        // myi.style.marginLeft=leftmargin+'px'; 
      }
  }
- 
- 
- 
+
 myi.onclick= function(){
    var interval=setInterval(anim,50);
    console.log(interval);
