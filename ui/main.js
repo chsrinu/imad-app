@@ -36,5 +36,5 @@ request.onReadyStateChange = function (){
 };
 };
 
-request.open("GET","http://chsreenivas92.imad.hasura-app.io/counter");
+request.open("GET","http://chsreenivas92.imad.hasura-app.io/counter",true);
 request.send();
