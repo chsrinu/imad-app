@@ -22,19 +22,24 @@ myi.onclick= function(){
 };
 
 var clicker=document.getElementById("abc");
-var request=new XMLHttpRequest();
+
 
 clicker.onclick=function() {
+    var request=new XMLHttpRequest();
 alert("u are trapped");
 request.onreadystatechange = function (){
-    if(request.readyState==XMLHttpRequest.DONE && request.status === 200)
+    if(request.readyState==XMLHttpRequest.DONE)
+    {
+     if(request.status === 200)
         {
-            var clickcount=document.getElementById("clickcount");
+           
             var temp=request.resposeText;
+            var clickcount=document.getElementById("clickcount");
             alert ("req made");
             Console.log("getting the response");
             clickcount.innerHTML=temp.toString();
         }
+    }
 };
 };
 
