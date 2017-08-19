@@ -29,13 +29,13 @@ clicker.onclick=function() {
 request.onreadystatechange = function (){
     if(request.readyState==XMLHttpRequest.DONE)
     {
-     if(request.status == 200)
+     if(request.status === 200)
         {
            
             var temp=request.resposeText;
             var clickcount=document.getElementById("clickcount");
             
-            console.log("getting the response "+temp);
+            console.log("getting the response ");
             clickcount.innerHTML=temp.toString();
         }
     }
