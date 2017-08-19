@@ -35,7 +35,7 @@ request.onreadystatechange = function (){
             var temp=request.resposeText;
             var clickcount=document.getElementById("clickcount");
             alert ("req made");
-            Console.log("getting the response");
+            console.log("getting the response");
             clickcount.innerHTML=temp.toString();
         }
     }
