@@ -21,10 +21,11 @@ myi.onclick= function(){
    console.log(interval);
 };
 
-var button=document.getElementsByTagName("button");
+var clicker=document.getElementById("abc");
 var request=new XMLHttpRequest();
-button.onclick=function() {
 
+clicker.onclick=function() {
+alert("u are trapped");
 request.onReadyStateChange = function (){
     if(request.status==200)
         {
