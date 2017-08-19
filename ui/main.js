@@ -26,7 +26,7 @@ var clicker=document.getElementById("abc");
 
 clicker.onclick=function() {
     var request=new XMLHttpRequest();
-request.onReadyStateChange = function (){
+request.onreadystatechange = function (){
     
      if(request.status == 200)
         {
