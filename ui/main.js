@@ -36,7 +36,7 @@ request.onreadystatechange = function (){
             var clickcount=document.getElementById("clickcount");
             
             console.log("getting the response ");
-            clickcount.innerHTML="" + temp;
+            clickcount.innerHTML=temp.toString();
         }
     }
 };
