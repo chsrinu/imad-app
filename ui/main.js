@@ -27,9 +27,10 @@ var request=new XMLHttpRequest();
 clicker.onclick=function() {
 alert("u are trapped");
 request.onreadystatechange = function (){
-    if(request.readyState==XMLHttpRequest.DONE && request.status == 200)
+    if( request.status == 200)
         {
             var clickcount=document.getElementById("clickcount");
+            alert("req made succ");
             var temp=request.resposeText;
             Console.log("getting the response");
             clickcount.innerHTML=temp.toString();
