@@ -26,7 +26,6 @@ var clicker=document.getElementById("abc");
 
 clicker.onclick=function() {
     var request=new XMLHttpRequest();
-alert("u are trapped");
 request.onreadystatechange = function (){
     if(request.readyState==XMLHttpRequest.DONE)
     {
@@ -41,7 +40,8 @@ request.onreadystatechange = function (){
         }
     }
 };
-};
-
 request.open('GET','http://chsreenivas92.imad.hasura-app.io/counter',true);
 request.send(null);
+};
+
+
