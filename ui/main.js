@@ -33,7 +33,7 @@ request.onreadystatechange = function (){
         {
            
             var counter= request.responseText; 
-            var span = document.getElementById("abc");
+            var span = document.getElementById("clickcount");
             span.innerHTML = counter.toString();
         }
     }
