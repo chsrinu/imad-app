@@ -24,9 +24,11 @@ myi.onclick= function(){
 var request=new XMLHttpRequest();
 request.onReadyStateChange = function (){
     if(request.status==200)
-        var clickcount=document.getElementById("clickcount");
-        Console.log("getting the response");
-        clickcount.innerHTML=request.resposeText;
+        {
+            var clickcount=document.getElementById("clickcount");
+            Console.log("getting the response");
+            clickcount.innerHTML=request.resposeText;
+        }
 };
 
 
