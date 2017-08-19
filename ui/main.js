@@ -27,7 +27,8 @@ var clicker=document.getElementById("abc");
 clicker.onclick=function() {
     var request=new XMLHttpRequest();
 request.onreadystatechange = function (){
-    
+    if(request.readyState==XMLHttpRequest.DONE)
+    {
      if(request.status == 200)
         {
            
@@ -37,7 +38,7 @@ request.onreadystatechange = function (){
             console.log("getting the response "+temp);
             clickcount.innerHTML=temp.toString();
         }
-    
+    }
 };
 request.open('GET','http://chsreenivas92.imad.hasura-app.io/counter',true);
 request.send(null);
