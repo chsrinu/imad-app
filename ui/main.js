@@ -23,7 +23,7 @@ myi.onclick= function(){
 
 var button=document.getElementsByTagName("button");
 var request=new XMLHttpRequest();
-button.onclick(function() {
+button.onclick= function() {
 
 request.onReadyStateChange = function (){
     if(request.status==200)
