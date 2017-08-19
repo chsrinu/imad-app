@@ -26,12 +26,13 @@ var request=new XMLHttpRequest();
 
 clicker.onclick=function() {
 alert("u are trapped");
-request.onReadyStateChange = function (){
+request.onreadystatechange = function (){
     if(request.readyState==XMLHttpRequest.DONE && request.status == 200)
         {
             var clickcount=document.getElementById("clickcount");
+            var temp=request.resposeText;
             Console.log("getting the response");
-            clickcount.innerHTML=request.resposeText;
+            clickcount.innerHTML=temp.toString();
         }
 };
 };
