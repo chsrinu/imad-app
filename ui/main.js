@@ -27,7 +27,7 @@ var request=new XMLHttpRequest();
 clicker.onclick=function() {
 alert("u are trapped");
 request.onReadyStateChange = function (){
-    if(request.status==200)
+    if(request.readyState==XMLHttpRequest.DONE && request.status == 200)
         {
             var clickcount=document.getElementById("clickcount");
             Console.log("getting the response");
@@ -36,5 +36,5 @@ request.onReadyStateChange = function (){
 };
 };
 
-request.open("GET","http://chsreenivas92.imad.hasura-app.io/counter",true);
-request.send();
+request.open('GET','http://chsreenivas92.imad.hasura-app.io/counter',true);
+request.send(null);
