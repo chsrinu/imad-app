@@ -32,11 +32,11 @@ request.onreadystatechange = function (){
      if(request.status === 200)
         {
            
-            
+            var temp=request.resposeText
             var clickcount=document.getElementById("clickcount");
             
             console.log("getting the response ");
-            clickcount.innerHTML=request.resposeText;
+            clickcount.innerHTML=temp.toString();
         }
     }
 };
