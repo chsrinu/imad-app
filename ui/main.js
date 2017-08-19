@@ -21,7 +21,10 @@ myi.onclick= function(){
    console.log(interval);
 };
 
+var button=document.getElementsByTagName("button");
 var request=new XMLHttpRequest();
+button.onClick(function(){
+
 request.onReadyStateChange = function (){
     if(request.status==200)
         {
@@ -30,8 +33,7 @@ request.onReadyStateChange = function (){
             clickcount.innerHTML=request.resposeText;
         }
 };
-
-
+});
 
 request.open("GET","http://chsreenivas92.imad.hasura-app.io/counter");
 request.send();
