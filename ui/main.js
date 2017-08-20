@@ -36,10 +36,10 @@ submit.onclick=function() {
      if(request.status === 200)
         {
            
-            responselist= JSON.parse(request.responseText); 
-            console.log("got response list "+responselist);
+            var rs= JSON.parse(request.responseText); 
+            console.log("got response list "+rs);
             var userlist = document.getElementById("userlist");
-            for (i=0;i<responselist.length;i++)
+            for (i=0;i<rs.length;i++)
             {
                 responselist.push("<li>"+i+"</li>");
             }
