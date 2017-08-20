@@ -26,7 +26,7 @@ var submit=document.getElementById("submit");
 
 submit.onclick=function() {
     var request=new XMLHttpRequest();
-    var resposelist=[];
+    
     var username=document.getElementById("username").value;
     console.log("submitted username :"+username);
     //var templist=[];
@@ -35,7 +35,7 @@ submit.onclick=function() {
     {
      if(request.status === 200)
         {
-           
+            var resposelist=[];
             var rs= JSON.parse(request.responseText); 
             console.log("got response list "+rs);
             var userlist = document.getElementById("userlist");
