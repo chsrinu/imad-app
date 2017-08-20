@@ -17,7 +17,7 @@ app.get('/counter', function(req, res){
 
 app.get('/submit-name', function(req, res){
     userlist.push(req.param("name"));
-   res.send(userlist);
+   res.send(JSON.stringize(userlist));
 });
 
 app.get('/ui/main.js', function(req, res){
