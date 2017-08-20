@@ -36,7 +36,7 @@ submit.onclick=function() {
      if(request.status === 200)
         {
            
-             resposelist= JSON.parse(request.responseText); 
+            resposelist= JSON.parse(request.responseText); 
             console.log("got response list "+responselist);
             var userlist = document.getElementById("userlist");
             
