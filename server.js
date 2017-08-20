@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var counter=0;
+var userlist=[];
 var app = express();
 app.use(morgan('combined') );
 
@@ -12,6 +13,11 @@ app.get('/', function (req, res) {
 app.get('/counter', function(req, res){
     counter++;
    res.send(counter.toString());
+});
+
+app.get('/submit-name', function(req, res){
+    userlist.push(req.param("name"));
+   res.send(userlist);
 });
 
 app.get('/ui/main.js', function(req, res){
