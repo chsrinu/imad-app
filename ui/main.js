@@ -36,10 +36,13 @@ submit.onclick=function() {
      if(request.status === 200)
         {
            
-            rs= JSON.parse(request.responseText); 
-            console.log("got response list "+rs);
+            responselist= JSON.parse(request.responseText); 
+            console.log("got response list "+responselist);
             var userlist = document.getElementById("userlist");
-            
+            for (i=0;i<responselist.length;i++)
+            {
+                responselist.push("<li>"+i+"</li>");
+            }
             userlist.innerHTML = responselist;
         }
     }
