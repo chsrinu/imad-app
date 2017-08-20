@@ -21,24 +21,28 @@ myi.onclick= function(){
    console.log(interval);
 };
 
-var clicker=document.getElementById("abc");
+var submit=document.getElementById("submit");
 
 
-clicker.onclick=function() {
+submit.onclick=function() {
     var request=new XMLHttpRequest();
-request.onreadystatechange = function (){
+    var username=document.getElementById("username");
+    //var templist=[];
+    request.onreadystatechange = function (){
     if(request.readyState===XMLHttpRequest.DONE)
     {
      if(request.status === 200)
         {
            
-            var counter= request.responseText; 
-            var span = document.getElementById("clickcount");
-            span.innerHTML = counter.toString();
+            var resposelist= request.responseText; 
+            console.log("got response list "+responselist);
+            var userlist = document.getElementById("userlist");
+            
+            userlist.innerHTML = responselist;
         }
     }
 };
-request.open('GET','http://chsreenivas92.imad.hasura-app.io/counter',true);
+request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+username,true);
 request.send();
 };
 
