@@ -39,7 +39,7 @@ submit.onclick=function() {
             var rs= JSON.parse(request.responseText); 
             console.log("got response list "+rs);
             var userlist = document.getElementById("userlist");
-            var resposelist=" ";
+            var responselist="";
             for (i=0;i<rs.length;i++)
             {
                 responselist+="<li>"+rs[i]+"</li>";
