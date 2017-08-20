@@ -35,13 +35,14 @@ submit.onclick=function() {
     {
      if(request.status === 200)
         {
-            var resposelist="";
+            
             var rs= JSON.parse(request.responseText); 
             console.log("got response list "+rs);
             var userlist = document.getElementById("userlist");
+            var resposelist=" ";
             for (i=0;i<rs.length;i++)
             {
-                responselist+="<li>"+i+"</li>";
+                responselist+="<li>"+rs[i]+"</li>";
             }
             userlist.innerHTML = responselist;
         }
