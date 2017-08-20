@@ -26,8 +26,9 @@ var submit=document.getElementById("submit");
 
 submit.onclick=function() {
     var request=new XMLHttpRequest();
-    console.log("submitted username :"+username);
+    
     var username=document.getElementById("username");
+    console.log("submitted username :"+username);
     //var templist=[];
     request.onreadystatechange = function (){
     if(request.readyState===XMLHttpRequest.DONE)
