@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').Pool;
+//var Pool = require('pool');
 var counter=0;
 var userlist=[];
 
@@ -13,7 +13,7 @@ const config={
     user:'chsreenivas92',
     password:'db-chsreenivas92-24567',
     database:'chsreenivas92',
-    host:'db.imad.hasura-app.io',
+    host:'db.imad.hasura.io',
     port:'5432'};
     
 var pool = new Pool(config);
@@ -47,33 +47,11 @@ var articles={
                 content:'Hi I am Article two from US'}
 };
 
-app.get('/testDb',function(req,res){
-    var query = "select * from article";
-    results=pool.query(query,function(err,result){
-        if(err)
-            res.setstatus("500").send(err.toString());
-        else
-           { console.log(article_name);
-            res.send(JSON.stringify(result));
-           }
-});
-});
-
-
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
-    console.log(article_name);
-    var query = "select * from article";
-    results=pool.query(query,function(err,result){
-        if(err)
-            res.setstatus("500").send(err.toString());
-        else
-           { console.log(article_name);
-            res.send(JSON.stringify(result));}
-    });
-    res.send(results);
-    console.log(results);
-    //res.send(createtemplate(results));
+    var query = "select * from articles where name='"+req.params.article_name+"'";
+    results=pool.query(query);
+    res.send(createtemplate(results));
 });
 
 app.get('/ui/madi.png', function (req, res) {
