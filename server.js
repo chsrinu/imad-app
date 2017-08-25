@@ -13,7 +13,7 @@ const config={
     user:'chsreenivas92',
     password:'db-chsreenivas92-24567',
     database:'chsreenivas92',
-    host:'db.imad.hasura.io',
+    host:'db.imad.hasura-app.io',
     port:'5432'};
     
 var pool = new Pool(config);
