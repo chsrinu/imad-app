@@ -11,10 +11,11 @@ app.use(morgan('combined') );
 
 const config={
     user:'chsreenivas92',
-    password:'db-chsreenivas92-24567',
     database:'chsreenivas92',
-    host:'db.imad.hasura.io',
-    port:'5432'};
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:'db-chsreenivas92-24567'};
+    
 var pool=new Pool(config)
 
 app.get('/testdb',function(req,res){
