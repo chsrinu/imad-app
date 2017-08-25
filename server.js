@@ -59,13 +59,15 @@ var articles={
 };
 
 app.get('/:article_name',function(req,res){
-    var article_name=req.params.article_name;
-    var query = "select * from article where title = \'Article One\'";
-    pool.query(query,function(err,results){
+     
+    pool.query("select * from article where name = '"+req.params.article_name+"'",function(err,results){
         if(err)
             res.status(500).send(err.toString());
         else
-            res.send(createtemplate(results));
+            if(results.rows.length===0)
+                res.status(404).send("resource not found");
+            else
+                res.send(createtemplate(results.rows[0]));
     });
     //
 });
