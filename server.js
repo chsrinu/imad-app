@@ -20,7 +20,7 @@ var pool=new Pool(config)
 app.get('/testdb',function(req,res){
     pool.query("select * from article",function(err,results){
         if(err)
-            res.setStatus(500).send(err.toString());
+            res.status(500).send(err.toString());
         else
             res.send(JSON.stringify(results))
     })
