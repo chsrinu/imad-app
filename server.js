@@ -49,7 +49,7 @@ var articles={
 
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
-    var query = "select * from articles where name='"+article_name+"'";
+    var query = "select * from articles";
     results=pool.query(query);
     res.send(results);
     console.log(results);
