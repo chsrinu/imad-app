@@ -59,8 +59,8 @@ var articles={
 };
 
 app.get('/:article_name',function(req,res){
-     
-    pool.query("select * from article where name = '"+req.params.article_name+"'",function(err,results){
+     query="select * from article where name = '"+req.params.article_name+"'";
+    pool.query(query,function(err,results){
         if(err)
             res.status(500).send(err.toString());
         else
