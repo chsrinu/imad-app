@@ -49,9 +49,11 @@ var articles={
 
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
-    var query = "select * from articles where name='"+req.params.article_name+"'";
+    var query = "select * from articles where name='"+article_name+"'";
     results=pool.query(query);
-    res.send(createtemplate(results));
+    res.send(results);
+    console.log(results);
+    //res.send(createtemplate(results));
 });
 
 app.get('/ui/madi.png', function (req, res) {
