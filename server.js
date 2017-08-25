@@ -65,7 +65,7 @@ app.get('/:article_name',function(req,res){
         if(err)
             res.status(500).send(err.toString());
         else
-            res.send(createtemplate(results.rows[1]));
+            res.send(createtemplate(results.rows[0]));
     });
     //
 });
