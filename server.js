@@ -55,7 +55,8 @@ app.get('/:article_name',function(req,res){
         if(err)
             res.setstatus("500").send(err.toString());
         else
-            res.send(JSON.stringify(result));
+           { console.log(article_name);
+            res.send(JSON.stringify(result));}
     });
     res.send(results);
     console.log(results);
