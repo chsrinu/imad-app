@@ -47,6 +47,19 @@ var articles={
                 content:'Hi I am Article two from US'}
 };
 
+app.get('/testDb',function(req,res){
+    var query = "select * from article";
+    results=pool.query(query,function(err,result){
+        if(err)
+            res.setstatus("500").send(err.toString());
+        else
+           { console.log(article_name);
+            res.send(JSON.stringify(result));
+           }
+});
+});
+
+
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
     console.log(article_name);
