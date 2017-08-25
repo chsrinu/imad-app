@@ -51,7 +51,12 @@ app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
     console.log(article_name);
     var query = "select * from article";
-    results=pool.query(query);
+    results=pool.query(query,function(err,result){
+        if(err)
+            res.setstatus("500").send(err.toString());
+        else
+            res.send(JSON.stringify(result));
+    });
     res.send(results);
     console.log(results);
     //res.send(createtemplate(results));
