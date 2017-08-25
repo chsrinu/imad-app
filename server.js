@@ -16,7 +16,7 @@ const config={
     host:'db.imad.hasura.io',
     port:'5432'};
     
-var pool = new Pool(config);
+//var pool = new Pool(config);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -50,8 +50,8 @@ var articles={
 app.get('/:article_name',function(req,res){
     var article_name=req.params.article_name;
     var query = "select * from articles where name='"+req.params.article_name+"'";
-    results=pool.query(query);
-    res.send(createtemplate(results));
+    //results=pool.query(query);
+    //res.send(createtemplate(results));
 });
 
 app.get('/ui/madi.png', function (req, res) {
