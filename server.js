@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-//var Pool = require('pool');
+var Pool = require('pg').Pool;
 var counter=0;
 var userlist=[];
 
@@ -15,8 +15,17 @@ const config={
     database:'chsreenivas92',
     host:'db.imad.hasura.io',
     port:'5432'};
+var pool=new Pool(config)
+
+app.get('/testdb',function(req,res){
+    pool.query("select * from article",function(err,results){
+        if(err)
+            res.setStatus(500).send(err.toString());
+        else
+            res.send(JSON.stringify(results))
+    })
     
-//var pool = new Pool(config);
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
