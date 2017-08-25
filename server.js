@@ -51,16 +51,9 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-var articles={
-    articleone:{title1:'Article One',
-                content:'Hi I am Article one from India'},
-    articletwo:{title1:'Article Two',
-                content:'Hi I am Article two from US'}
-};
-
 app.get('/:article_name',function(req,res){
-     query="select * from article where name = '"+req.params.article_name+"'";
-    pool.query(query,function(err,results){
+     
+    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
         if(err)
             res.status(500).send(err.toString());
         else
