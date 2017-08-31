@@ -53,8 +53,14 @@ request.send();
 };
 var login=document.getElementById("login");
 var register=document.getElementById("register");
+
 register.onclick=function(){
-    
+    var username=$("#username").text();
+    var password=$("#password").text();
+    var arr={"username":username,"password":password};
+    $.post('http://chsreenivas92.imad.hasura-app.io/register',JSON.stringify(arr),function(result){
+        
+    });
 };
 login.onclick=function(){
     
