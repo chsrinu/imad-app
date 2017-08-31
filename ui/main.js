@@ -27,8 +27,8 @@ var submit=document.getElementById("submit");
 submit.onclick=function() {
     var request=new XMLHttpRequest();
     
-    var username=document.getElementById("username").value;
-    console.log("submitted username :"+username);
+    var user=document.getElementById("user").value;
+    console.log("submitted username :"+user);
     //var templist=[];
     request.onreadystatechange = function (){
     if(request.readyState===XMLHttpRequest.DONE)
@@ -48,7 +48,7 @@ submit.onclick=function() {
         }
     }
 };
-request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+username,true);
+request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+user,true);
 request.send();
 };
 
