@@ -51,5 +51,13 @@ submit.onclick=function() {
 request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+user,true);
 request.send();
 };
+var login=document.getElementById("login");
+var register=document.getElementById("register");
+register.onclick=function(){
+    
+};
+login.onclick=function(){
+    
+};
 
 
