@@ -2,12 +2,14 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
+var bodyParser = require('body-parser')
 var counter=0;
 var userlist=[];
 
     
 var app = express();
 app.use(morgan('combined') );
+app.use(bodyParser.json())
 
 const config={
     user:'chsreenivas92',
