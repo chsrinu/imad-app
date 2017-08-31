@@ -69,6 +69,15 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+app.post('/register',function(req,res){
+    res.send("register endpoint successfull, the username and password sent are"+req.body.username+" "+req.body.password);
+});
+
+app.post('/login',function(req,res){
+    res.send("login endpoint successful,the username and password"+req.body.username+" "+req.body.password);
+});
+
+
 function createtemplate(data)
 {
     var Atitle=data.title;
