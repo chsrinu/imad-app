@@ -1,14 +1,14 @@
 
 console.log('Loaded!');
 
-var myi=document.getElementById("b");
+var monsterimage=document.getElementById("monsterimage");
 var leftmargin=0;
  function anim(){
      
      console.log("anim");
      leftmargin=leftmargin+10;
-     myi.style.marginLeft=leftmargin+'px';
-     console.log(myi.style.marginLeft);
+     monsterimage.style.marginLeft=leftmargin+'px';
+     console.log(monsterimage.style.marginLeft);
      if(leftmargin>='1250')
      {
          leftmargin=-leftmargin;
@@ -16,7 +16,7 @@ var leftmargin=0;
      }
  }
 
-myi.onclick= function(){
+monsterimage.onclick= function(){
    var interval=setInterval(anim,50);
    console.log(interval);
 };
