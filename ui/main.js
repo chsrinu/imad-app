@@ -51,8 +51,8 @@ submit.onclick=function() {
 request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+user,true);
 request.send();
 };
-var login=document.getElementById("Login");
-var register=document.getElementById("Register");
+var login=$("#Login");
+var register=$("#Register");
 
 register.onclick=function(){
     console.log("clicked register button")
