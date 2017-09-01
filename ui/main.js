@@ -66,8 +66,6 @@ register.onclick=function(){
             console.log(data.tostring()+" "+status)
     });
 };
-login.onclick=function(){
-    
-};
+
 
 
