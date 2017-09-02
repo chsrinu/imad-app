@@ -105,7 +105,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 0)
             res.status(400).send("Invalid credentials");
         else if(results.rows.length === 1){
-            req.session.auth={userId:result.rows[0].Id} ;
+            req.session.auth={userId:results.rows[0].id} ;
             res.send("Logged in successfully");
         }
         else
