@@ -70,25 +70,33 @@ app.get('/:article_name',function(req,res){
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-function hash(password,salt){
+function hash(password){
     
-   var hashed=crypto.pbkdf2Sync(password,salt,1000,512,'sha512');
+   var hashed=crypto.pbkdf2Sync(password,'putsomesalt',1000,512,'sha512');
     return hashed.toString('hex');
 }
 app.post('/register',function(req,res){
     var hashed_username=req.body.user1;
-    var hashed_password=hash(req.body.pass1,"putsomesalt");
+    var hashed_password=hash(req.body.pass1);
     pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
         if(err)
            res.status(500).send(err.toString());
         else
-            res.send("successfully created an entry for user "+hashed_username);
+            res.send("successfully created an entry for user "+hashed_username+" "+results.type);
     });
    
 });
 
 app.post('/login',function(req,res){
-    res.send("login endpoint successful,the username and password"+req.body.username+" "+req.body.password);
+    var username=req.body.username;
+    var password=hash(req.body.password);
+    pool.query("select * from users where username='$1' and password='$2'",[username,password],function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else if(results.rows.length === 0)
+            res.status(400).send("Invalid credentials");
+        else if(results.rows.length === )
+    })
 });
 
 
