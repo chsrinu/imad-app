@@ -64,7 +64,7 @@ $("#Register").click(function(){
         url:'http://chsreenivas92.imad.hasura-app.io/register',
         type:'post',
         contentType:'application/json',
-        data:jsonObject,
+        data:JSON.stringify(jsonObject),
         success: function(data){
             console.log(JSON.stringify(data));
         },
