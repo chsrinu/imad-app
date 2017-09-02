@@ -67,9 +67,11 @@ $("#Register").click(function(){
         data:JSON.stringify(jsonObject),
         success: function(data){
             console.log(JSON.stringify(data));
+            alert(data)
         },
         error:function(data){
             console.log(JSON.stringify(data));
+             alert("something went wrong,please try later")
         } 
         
         
