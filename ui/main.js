@@ -64,7 +64,7 @@ $("#Register").click(function(){
     if(request.readyState===XMLHttpRequest.DONE)
     {
      
-            console.log("got response"+response);
+            console.log("got response"+request.responseText);
         
     }
      }
