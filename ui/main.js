@@ -22,10 +22,10 @@ monsterimage.onclick= function(){
 };
 
 var submit=document.getElementById("submit");
-
+var request=new XMLHttpRequest();
 
 submit.onclick=function() {
-    var request=new XMLHttpRequest();
+    
     
     var user=document.getElementById("user").value;
     console.log("submitted username :"+user);
@@ -60,12 +60,17 @@ $("#Register").click(function(){
     var password=$("#password").val();
     console.log("username and password are "+username+","+password);
     var jsonobject={"user1":username,"pass1":password};
-     $.post('http://chsreenivas92.imad.hasura-app.io/register',jsonobject,function(data,status){
-        if(status==200)
-            alert("logged in")
-        else
-            console.log(data+" "+status);
-    });
+     request.onreadystatechange = function (){
+    if(request.readyState===XMLHttpRequest.DONE)
+    {
+     
+            console.log("got response"+response);
+        
+    }
+     }
+    request.open('POST','http://chsreenivas92.imad.hasura-app.io/register',true);
+    request.setRequestHeader('Content-Type','application/json');
+    request.send(jsonobject);
 });
 
 
