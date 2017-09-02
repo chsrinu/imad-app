@@ -75,13 +75,13 @@ function hash(password,salt){
     return hashed.toString();
 }
 app.get('/register/:password',function(req,res){
-    var hashed_username=req.body.user1;
+    //var hashed_username=req.body.user1;
     var hashed_password=hash(req.params.password,"putsomesalt");
     //pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
       //  if(err)
         //    res.status(500).send(err.toString());
         //else
-            res.send("successfully created an for user "+hashed_username);
+            res.send("successfully created an for user "+hashed_password);
     //});
    
 });
