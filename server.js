@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var bodyParser = require('body-parser')
 var counter=0;
 var userlist=[];
-
+var passwordHash = require('password-hash');
     
 var app = express();
 app.use(morgan('combined') );
@@ -72,12 +72,14 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.post('/register',function(req,res){
-    if("cnu" === req.body.user1)
-    {
-         res.send("register endpoint successfull for user"+req.body.user1);
-    }
-    else
-    res.send("not successful");
+    var hashed_username=req.body.user1;
+    var hashed_password=passwordHash.generate("'"+req.body.pass1+"'");
+    pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else
+            res.send("successfully created an for user "+hashed_username);
+    });
    
 });
 
