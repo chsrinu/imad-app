@@ -77,7 +77,8 @@ function hash(password,salt){
 }
 app.post('/register',function(req,res){
     var hashed_username=req.body.user1;
-    var hashed_password=hash(req.body.pass1,"putsomesalt");
+    //var hashed_password=hash(req.body.pass1,"putsomesalt");
+    hashed_password=req.body.pass1
     pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
         if(err)
            res.status(500).send(err.toString());
