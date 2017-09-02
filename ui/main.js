@@ -91,10 +91,10 @@ $("#Login").click(function(){
         data:JSON.stringify(inputparameters),
         success : function(data)
         {
-             alert(data);
+             alert(JSON.stringify(data));
         },
         error : function(data){
-            alert(data);
+            alert(JSON.stringify(data));
         }
         
         
