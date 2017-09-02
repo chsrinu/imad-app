@@ -44,6 +44,10 @@ app.get('/counter', function(req, res){
     counter++;
    res.send(counter.toString());
 });
+app.get('/checklogin',function(req,res){
+    if(req.session && req.session.auth && req.session.auth.userId)
+        res.send("u are logged in bugger with Id "+req.session.auth.userId)
+})
 
 app.get('/submit-name', function(req, res){
     userlist.push(req.param("name"));
@@ -108,10 +112,7 @@ app.post('/login',function(req,res){
             res.send("something went wrong please try later");
     });
 });
-app.get('/checklogin',function(req,res){
-    if(req.session && req.session.auth && req.session.auth.userId)
-        res.send("u are logged in bugger with Id "+req.session.auth.userId)
-})
+
 
 app.get('/logout',function(req,res){
     delete req.session.auth;
