@@ -58,7 +58,7 @@ $("#Register").click(function(){
     console.log("clicked register button")
     var username=$("#username").text();
     var password=$("#password").text();
-    console.log(username,password);
+    console.log("username and password are "+username+","+password);
     var arr={"username":username,"password":password};
     
     $.post('http://chsreenivas92.imad.hasura-app.io/register',JSON.stringify(arr),function(data,status){
