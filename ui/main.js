@@ -60,11 +60,7 @@ $("#Register").click(function(){
     var password=$("#password").val();
     console.log("username and password are "+username+","+password);
     var jsonobject={"user1":username,"pass1":password};
-   Object.keys(jsonobject).forEach(function(key) {
-    console.log(key, arr[key]);
-});
-    
-    $.post('http://chsreenivas92.imad.hasura-app.io/register',arr,function(data,status){
+     $.post('http://chsreenivas92.imad.hasura-app.io/register',jsonobject,function(data,status){
         if(status==200)
             alert("logged in")
         else
