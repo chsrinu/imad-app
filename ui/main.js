@@ -86,7 +86,7 @@ $("#Login").click(function(){
     $.ajax({
         url:"http://chsreenivas92.imad.hasura-app.io/login",
         type:'post',
-        data:inputparameters,
+        data:JSON.stringify(inputparameters),
         contentType:'application/json',
         success : function(data)
         {
