@@ -71,9 +71,7 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 function hash(password,salt){
-    var hashed=crypto.pbkdf2(password,salt,1000,512,'sha512', function(err, key) {
-    if (err)
-        throw err;});
+    var hashed=crypto.pbkdf2(password,salt,1000,512,'sha512', function(err, key) {});
     return hashed.toString();
 }
 app.get('/register/:password',function(req,res){
