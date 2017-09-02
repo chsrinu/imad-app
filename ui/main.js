@@ -78,6 +78,29 @@ $("#Register").click(function(){
     });
    
 });
+$("#Login").click(function(){
+    console.log("clicked login button")
+    var username=$("#username").val();
+    var password=$("#password").val();
+    var inputparameters={"username":username,"password":password}
+    $.ajax({
+        url:"http://chsreenivas92.imad.hasura-app.io/register",
+        type:'post',
+        data:inputparameters,
+        contentType:'application/json',
+        success : function(data)
+        {
+             alert(data);
+        },
+        error : function(data){
+            aler(data);
+        }
+        
+        
+    })
+    
+})
+
 
 
 
