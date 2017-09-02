@@ -62,19 +62,7 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/:article_name',function(req,res){
-     
-    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
-        if(err)
-            res.status(500).send(err.toString());
-        else
-            if(results.rows.length===0)
-                res.status(404).send("resource not found");
-            else
-                res.send(createtemplate(results.rows[0]));
-    });
-    //
-});
+
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
@@ -118,7 +106,19 @@ app.get('/logout',function(req,res){
     delete req.session.auth;
     res.send("you are logged out");
 })
-
+app.get('/:article_name',function(req,res){
+     
+    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else
+            if(results.rows.length===0)
+                res.status(404).send("resource not found");
+            else
+                res.send(createtemplate(results.rows[0]));
+    });
+    //
+});
 function createtemplate(data)
 {
     var Atitle=data.title;
