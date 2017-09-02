@@ -52,9 +52,9 @@ request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+u
 request.send();
 };
 var login=$("#Login");
-var register=$("#Register");
+//var register=;
 
-register.onclick=function(){
+$("#Register").click(function(){
     console.log("clicked register button")
     var username=$("#username").text();
     var password=$("#password").text();
@@ -65,7 +65,13 @@ register.onclick=function(){
         else
             console.log(data.tostring()+" "+status)
     });
-};
+});
+/*$(document).ready(function() {
+    $("#btnSubmit").click(function(){
+        alert("button");
+    }); 
+});*/
+
 
 
 
