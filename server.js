@@ -72,7 +72,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 function hash(password,salt){
     
-   var hashed=crypto.pbkdf2Sync(password,salt,1000,512,'sha512');
+   var hashed=crypto.pbkdf2Sync(password,salt,10,64,'sha512');
     return hashed.toString('hex');
 }
 app.post('/register',function(req,res){
