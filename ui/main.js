@@ -93,6 +93,7 @@ $("#Login").click(function(){
         {
              alert("Successfully logged in!!!");
              console.log("success "+JSON.stringify(data));
+             gotoarticlespage()
         },
         error : function(data){
             alert("Login failed!!");
@@ -103,6 +104,23 @@ $("#Login").click(function(){
     })
     
 })
+function gotoarticlespage()
+{
+    $.ajax({
+        url:"http://chsreenivas92.imad.hasura-app.io/articleone",
+        type:'get',
+        contentType:"text/html",
+        success: function(data)
+        {
+            console.log("I am in article page")
+        },
+        error : function(data)
+        {
+            console.log("unable to make it"+data.toString())
+        }
+        
+    })
+}
 
 
 
