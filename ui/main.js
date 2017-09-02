@@ -58,10 +58,9 @@ $("#Register").click(function(){
     console.log("clicked register button")
     var username=$("#username").text();
     var password=$("#password").text();
+    console.log(username,password);
     var arr={"username":username,"password":password};
-    for(var i=0;i<arr.length;i++){
-    console.log("username and passowrd :"+arr);
-    }
+    
     $.post('http://chsreenivas92.imad.hasura-app.io/register',JSON.stringify(arr),function(data,status){
         if(status==200)
             alert("logged in")
