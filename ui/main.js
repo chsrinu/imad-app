@@ -59,7 +59,7 @@ $("#Register").click(function(){
     var username=$("#username").text();
     var password=$("#password").text();
     var arr={"username":username,"password":password};
-    for(var i=0;i<arr.length();i++){
+    for(var i=0;i<arr.length;i++){
     console.log("username and passowrd :"+arr);
     }
     $.post('http://chsreenivas92.imad.hasura-app.io/register',JSON.stringify(arr),function(data,status){
