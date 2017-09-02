@@ -6,10 +6,15 @@ var bodyParser = require('body-parser')
 var counter=0;
 var userlist=[];
 var crypto = require('crypto');
+var session= require('exress-session')
     
 var app = express();
 app.use(morgan('combined') );
 app.use(bodyParser.json())
+app.use(session({
+    secret:"$reen!",
+    cookie:{maxAge:1000*60*60*24*30}
+}))
 
 const config={
     user:'chsreenivas92',
@@ -95,13 +100,23 @@ app.post('/login',function(req,res){
             res.status(500).send(err.toString());
         else if(results.rows.length === 0)
             res.status(400).send("Invalid credentials");
-        else if(results.rows.length === 1)
+        else if(results.rows.length === 1){
+            req.session.auth={userId:results.rows[0].Id} ;
             res.send("Logged in successfully");
+        }
         else
             res.send("something went wrong please try later");
     });
 });
+app.get('/checklogin',function(req,res){
+    if(req.session && req.session.auth && req.session.auth.userId)
+        res.send("u are logged in bugger with Id "+req.session.auth.userId)
+})
 
+app.get('/logout',function(req,res){
+    delete req.session.auth;
+    res.send("you are logged out");
+})
 
 function createtemplate(data)
 {
