@@ -93,7 +93,7 @@ $("#Login").click(function(){
              alert(data);
         },
         error : function(data){
-            aler(data);
+            alert(data);
         }
         
         
