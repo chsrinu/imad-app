@@ -73,7 +73,7 @@ app.get('/ui/madi.png', function (req, res) {
 function hash(password,salt){
     
    var hashed=crypto.pbkdf2Sync(password,salt,1000,512,'sha512');
-    return hashed.toString('hex');
+    return hashed.toString();
 }
 app.get('/register/:password',function(req,res){
     //var hashed_username=req.body.user1;
