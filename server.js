@@ -45,17 +45,10 @@ app.get('/counter', function(req, res){
    res.send(counter.toString());
 });
 app.get('/checklogin',function(req,res){
-    var res1='';
-    if(req.session)
+    
+    if(req.session && req.session.auth && req.session.auth.userId)
     {
-        res1=res1+"sessiom,"
-            if( req.session.auth)
-                res1=res1+"auth,"
-                if(req.session.auth.userId)
-                {res1=res1+"userId"
-                res.send("u are logged in bugger with Id "+req.session.auth.userId.toString());
-                }
-        res.send("u got "+res1);
+        res.send("u are already logged in bugger ur id is "+req.session.auth.userId.toString())
     }
     else
         res.send("u did not login yet")
