@@ -96,8 +96,10 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 0)
             res.status(400).send("Invalid credentials");
         else if(results.rows.length === 1)
-            res.send("Logged in successfully")
-    })
+            res.send("Logged in successfully");
+        else
+            res.send("something went wrong please try later");
+    });
 });
 
 
