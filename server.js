@@ -76,7 +76,7 @@ app.post('/register',function(req,res){
 });
 
 app.post('/login',function(req,res){
-    res.send("login endpoint successful,the username and password"+req.body.username+" "+req.body.password);
+    res.send("login endpoint successful,the username and password"+JSON.parse(req.body.username)+" "+req.body.password);
 });
 
 
