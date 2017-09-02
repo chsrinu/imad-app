@@ -59,8 +59,8 @@ $("#Register").click(function(){
     var username=$("#username").val();
     var password=$("#password").val();
     console.log("username and password are "+username+","+password);
-    var arr={"user1":username,"pass1":password};
-   Object.keys(arr).forEach(function(key) {
+    var jsonobject={"user1":username,"pass1":password};
+   Object.keys(jsonobject).forEach(function(key) {
     console.log(key, arr[key]);
 });
     
@@ -71,11 +71,7 @@ $("#Register").click(function(){
             console.log(data+" "+status)
     });
 });
-/*$(document).ready(function() {
-    $("#btnSubmit").click(function(){
-        alert("button");
-    }); 
-});*/
+
 
 
 
