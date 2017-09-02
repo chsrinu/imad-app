@@ -83,11 +83,12 @@ $("#Login").click(function(){
     var username=$("#username").val();
     var password=$("#password").val();
     var inputparameters={"username":username,"password":password}
+      console.log("username and password are "+username+","+password);
     $.ajax({
         url:"http://chsreenivas92.imad.hasura-app.io/login",
         type:'post',
-        data:JSON.stringify(inputparameters),
         contentType:'application/json',
+        data:JSON.stringify(inputparameters),
         success : function(data)
         {
              alert(data);
