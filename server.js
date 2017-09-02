@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var bodyParser = require('body-parser')
 var counter=0;
 var userlist=[];
-var passwordHash = require('password-hash');
+var crypto = require('crypto');
     
 var app = express();
 app.use(morgan('combined') );
@@ -70,16 +70,19 @@ app.get('/:article_name',function(req,res){
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-
-app.post('/register',function(req,res){
+function hash(password,salt){
+    var hashed=crypto.pbkdf2(password,salt,1000,512,'sha512');
+    return hashed.toString();
+}
+app.get('/register/:password',function(req,res){
     var hashed_username=req.body.user1;
-    var hashed_password=passwordHash.generate("'"+req.body.pass1+"'");
-    pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
-        if(err)
-            res.status(500).send(err.toString());
-        else
+    var hashed_password=hash(req.params.password,"putsomesalt");
+    //pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
+      //  if(err)
+        //    res.status(500).send(err.toString());
+        //else
             res.send("successfully created an for user "+hashed_username);
-    });
+    //});
    
 });
 
