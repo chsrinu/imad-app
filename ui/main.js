@@ -56,8 +56,8 @@ var login=$("#Login");
 
 $("#Register").click(function(){
     console.log("clicked register button")
-    var username=$("#username").text();
-    var password=$("#password").text();
+    var username=$("#username").val();
+    var password=$("#password").val();
     console.log("username and password are "+username+","+password);
     var arr={"username":username,"password":password};
     
