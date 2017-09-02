@@ -64,7 +64,7 @@ $("#Register").click(function(){
         if(status==200)
             alert("logged in")
         else
-            console.log(data+" "+status)
+            console.log(JSON.parse(data)+" "+status)
     });
 });
 
