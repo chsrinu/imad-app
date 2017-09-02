@@ -72,7 +72,13 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.post('/register',function(req,res){
-    res.send("register endpoint successfull, the username and password sent are"+req.body+" "+req.body.pass1);
+    if("cnu".equals(req.body.user1))
+    {
+         res.send("register endpoint successfull");
+    }
+    else
+    res.send("not successful");
+   
 });
 
 app.post('/login',function(req,res){
