@@ -90,7 +90,7 @@ app.post('/register',function(req,res){
 app.post('/login',function(req,res){
     var username=req.body.username;
     var password=hash(req.body.password);
-    pool.query("select * from users where username='$1' and password='$2'",[username,password],function(err,results){
+    pool.query("select * from users where username='$1'",[username],function(err,results){
         if(err)
             res.status(500).send(err.toString());
         else if(results.rows.length === 0)
