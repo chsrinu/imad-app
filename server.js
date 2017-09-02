@@ -72,7 +72,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.post('/register',function(req,res){
-    if("cnu".equals(req.body.user1))
+    if("cnu" === req.body.user1)
     {
          res.send("register endpoint successfull");
     }
