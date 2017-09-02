@@ -45,10 +45,20 @@ app.get('/counter', function(req, res){
    res.send(counter.toString());
 });
 app.get('/checklogin',function(req,res){
-    if(req.session && req.session.auth && req.session.auth.userId)
-        res.send("u are logged in bugger with Id "+req.session.auth.userId.toString());
+    var res1='';
+    if(req.session)
+    {
+        res1=res1+"sessiom,"
+            if( req.session.auth)
+                res1=res1+"auth,"
+                if(req.session.auth.userId)
+                {res1=res1+"userId"
+                res.send("u are logged in bugger with Id "+req.session.auth.userId.toString());
+                }
+        res.send("u got "+res1);
+    }
     else
-        res.send("u are already logged out")
+        res.send("u did not login yet")
 })
 
 app.get('/submit-name', function(req, res){
