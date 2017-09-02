@@ -59,18 +59,22 @@ $("#Register").click(function(){
     var username=$("#username").val();
     var password=$("#password").val();
     console.log("username and password are "+username+","+password);
-    var jsonobject={"user1":username,"pass1":password};
-     request.onreadystatechange = function (){
-    if(request.readyState===XMLHttpRequest.DONE)
-    {
-     
-            console.log("got response"+request.responseText);
+    var jsonObject={"user1":username,"pass1":password};
+    $.ajax({
+        url:'http://chsreenivas92.imad.hasura-app.io/register',
+        type:'post',
+        contentType:'application/json',
+        data:JSON.stringify(jsonObject),
+        success: function(data){
+            console.log(JSON.stringify(data));
+        },
+        error:function(data){
+            console.log(JSON.stringify(data));
+        } 
         
-    }
-     }
-    request.open('POST','http://chsreenivas92.imad.hasura-app.io/register',true);
-    request.setRequestHeader('Content-Type','application/json');
-    request.send(jsonobject);
+        
+    });
+   
 });
 
 
