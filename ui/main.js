@@ -96,7 +96,7 @@ $("#Login").click(function(){
         },
         error : function(data){
             alert("Login failed!!");
-            console.log("failed "+data);
+            console.log("failed "+JSON.parse(data));
         }
         
         
