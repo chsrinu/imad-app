@@ -47,6 +47,8 @@ app.get('/counter', function(req, res){
 app.get('/checklogin',function(req,res){
     if(req.session && req.session.auth && req.session.auth.userId)
         res.send("u are logged in bugger with Id "+req.session.auth.userId)
+    else
+        res.send("u are already logged out")
 })
 
 app.get('/submit-name', function(req, res){
