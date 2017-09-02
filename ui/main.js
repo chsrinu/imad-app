@@ -64,7 +64,7 @@ $("#Register").click(function(){
     console.log(key, arr[key]);
 });
     
-    $.post('http://chsreenivas92.imad.hasura-app.io/register',JSON.stringify(arr),function(data,status){
+    $.post('http://chsreenivas92.imad.hasura-app.io/register',arr,function(data,status){
         if(status==200)
             alert("logged in")
         else
