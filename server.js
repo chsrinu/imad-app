@@ -82,7 +82,7 @@ app.post('/register',function(req,res){
         if(err)
            res.status(500).send(err.toString());
         else
-            res.send("successfully created an entry for user "+hashed_user);
+            res.send("successfully created an entry for user "+hashed_username);
     });
    
 });
