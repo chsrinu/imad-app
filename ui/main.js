@@ -92,9 +92,11 @@ $("#Login").click(function(){
         success : function(data)
         {
              alert(JSON.stringify(data));
+             console.log("success "+data)
         },
         error : function(data){
             alert(JSON.stringify(data));
+            console.log("failed "+data)
         }
         
         
