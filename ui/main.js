@@ -89,8 +89,8 @@ $("#Login").click(function(){
         type:'post',
         contentType:'application/json',
         data:JSON.stringify(inputparameters),
-       // success : function(data)
-        //{
+        success : function(data)
+        {
              alert("Successfully logged in!!!");
              console.log("success "+JSON.stringify(data));
              //gotoarticlespage()
