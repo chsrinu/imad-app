@@ -142,12 +142,21 @@ function createArticleListTemplate(titledata)
 {
     const markup =
     `<html>
+        <head>
+            <script>
+                var but=document.getElementById("ok")
+                but.onclick=function(){
+                    alert("button clicked");
+                };
+            </script>
         <body>
             <ul>
                 ${titledata.map(temp => 
                     `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
-            </ul>`
+            </ul>
+            <button id="ok">submit</button>`
        
+            
         
     return markup+ `</body>
     </html>`;
