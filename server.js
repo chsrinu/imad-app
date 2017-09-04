@@ -100,14 +100,17 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1)
         {
             req.session.auth={userId:results.rows[0].id} ;
-            //res.set('Content-Type', 'html');
-            res.redirect('/');
+            res.redirect('/articlelist');
         }
         else
             res.send("something went wrong please try later");
     });
 });
-
+app.get('/articlelist',function(req,res){
+   res.sendFile(path.join(__dirname, 'ui', 'articles.html'));
+   
+    
+});
 
 app.get('/logout',function(req,res){
     delete req.session.auth;
@@ -129,9 +132,8 @@ app.get('/articles/:article_name',function(req,res){
 function createtemplate(data)
 {
     var Atitle=data.title;
-    var Acontent=data.content
-    var htmltemplate= 
-`<html>
+    var Acontent=data.content;
+    var htmltemplate= `<html>
     <head>
         <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
@@ -139,7 +141,8 @@ function createtemplate(data)
     <body class="articles">
         <h1>${Acontent}</h1>
     </body>
-</html>`;
+    </html>`;
+
 return htmltemplate;
 }
 // Do not change port, otherwise your app won't run on IMAD servers
