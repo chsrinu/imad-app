@@ -143,19 +143,15 @@ function createArticleListTemplate(titledata)
     const markup =
     `<html>
         <head>
-            <script>
-                var but=document.getElementById("ok")
-                but.onclick=function(){
-                    alert("button clicked");
-                };
-            </script>
+            
         <body>
             <ul>
                 ${titledata.map(temp => 
                     `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
             </ul>
             <button id="ok">submit</button>`
-       
+       if(req.session.auth.userId)
+        markup+`<textarea rows="4" cols="50"></textarea>`
             
         
     return markup+ `</body>
