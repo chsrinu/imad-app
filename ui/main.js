@@ -89,6 +89,11 @@ $("#Login").click(function(){
         type:'post',
         contentType:'application/json',
         data:JSON.stringify(inputparameters),
+        complete: function() {
+            //called when complete
+            console.log('process complete');
+            window.location.replace("http://chsreenivas92.imad.hasura-app.io/articles/articleone")
+        },
         success : function(data)
         {
              alert("Successfully logged in!!!");
