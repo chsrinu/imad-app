@@ -78,6 +78,18 @@ app.post('/register',function(req,res){
     });
    
 });
+app.get('/articlelist',function(req,res){
+   pool.query("select title,name from articles",function(err,results){
+       if(err)
+        res.status(500).send(err.toString())
+       else if(results.rows.length === 0)
+        res.status(404).send("no data found")
+       else if(results.rows.length>0)
+        res.send(createArticleListTemplate(results.rows));
+       else
+        res.send("someerror has occured, please try later");
+   });
+});
 app.post('/login',function(req,res){
     var username=req.body.username;
     var password=hash(req.body.password);
@@ -95,18 +107,7 @@ app.post('/login',function(req,res){
             res.send("something went wrong please try later");
     });
 });
-app.get('/articlelist',function(req,res){
-   pool.query("select title,name from articles",function(err,results){
-       if(err)
-        res.status(500).send(err.toString())
-       else if(results.rows.length === 0)
-        res.status(404).send("no data found")
-       else if(results.rows.length>0)
-        res.send(createArticleListTemplate(results.rows));
-       else
-        res.send("someerror has occured, please try later");
-   });
-});
+
 app.get('/logout',function(req,res){
     delete req.session.auth;
     res.send("you are logged out");
