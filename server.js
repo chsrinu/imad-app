@@ -100,7 +100,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1)
         {
             req.session.auth={userId:results.rows[0].id} ;
-            res.setHeaders('contentType:text/html');
+            res.set('Content-Type', 'text/plain');
             res.redirect('http://www.google.com');
         }
         else
