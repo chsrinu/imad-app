@@ -149,7 +149,9 @@ function CreateArticleListTemplate(titledata)
             
             </li>`
      ).join('')}
- </ul>`;
+ </ul>
+ </body>
+ </html>`;
         
     return markup;
     
