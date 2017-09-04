@@ -154,7 +154,7 @@ for(i=0;i<titledata.length;i++)
        //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
         const markup = `<html>
         <body>
-      <ul>str
+      <ul>${str}
       </ul>
  </body>
  </html>`;
