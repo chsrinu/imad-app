@@ -39,7 +39,7 @@ app.get('/testdb',function(req,res){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/:article_name',function(req,res){
+app.get('articles/:article_name',function(req,res){
      
     pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
         if(err)
@@ -112,7 +112,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1){
             req.session.auth={userId:results.rows[0].id} ;
             //res.send("Logged in successfully");
-            res.redirect('/articleone');
+            res.redirect('http://chsreenivas92.imad.hasura-app.io/articles/articleone');
         }
         else
             res.send("something went wrong please try later");
