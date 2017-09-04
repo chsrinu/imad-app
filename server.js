@@ -149,11 +149,9 @@ function createArticleListTemplate(req,titledata)
                 ${titledata.map(temp => 
                     `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
             </ul>
-            <button id="ok">submit</button>`
-       if(req.session.auth.userId)
-        markup+`<textarea rows="4" cols="50"></textarea>`
-            
-        
+            <button id="ok">submit</button>
+            <textarea rows="4" cols="50"></textarea>`
+     
     return markup+ `</body>
     </html>`;
     
