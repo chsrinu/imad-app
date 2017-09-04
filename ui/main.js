@@ -109,7 +109,7 @@ function gotoarticlespage()
     $.ajax({
         url:"http://chsreenivas92.imad.hasura-app.io/articles/articleone",
         type:'get',
-        contentType:"text/html",
+        contentType:"html",
         success: function(data)
         {
             console.log("I am in article page")
