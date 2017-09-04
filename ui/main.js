@@ -1,129 +1,151 @@
-
-console.log('Loaded!');
-
-var monsterimage=document.getElementById("monsterimage");
-var leftmargin=0;
- function anim(){
-     
-     console.log("anim");
-     leftmargin=leftmargin+10;
-     monsterimage.style.marginLeft=leftmargin+'px';
-     console.log(monsterimage.style.marginLeft);
-     if(leftmargin>='1250')
-     {
-         leftmargin=-leftmargin;
-       // myi.style.marginLeft=leftmargin+'px'; 
-     }
- }
-
-monsterimage.onclick= function(){
-   var interval=setInterval(anim,50);
-   console.log(interval);
-};
-
-var submit=document.getElementById("submit");
-var request=new XMLHttpRequest();
-
-submit.onclick=function() {
+var express = require('express');
+var morgan = require('morgan');
+var path = require('path');
+var Pool = require('pg').Pool;
+var bodyParser = require('body-parser')
+var counter=0;
+var userlist=[];
+var crypto = require('crypto');
+var session= require('express-session')
     
+var app = express();
+app.use(morgan('combined') );
+app.use(bodyParser.json())
+app.use(session({
+    secret:"$reen!",
+    cookie:{maxAge:1000*60*60*24*30}
+}))
+
+const config={
+    user:'chsreenivas92',
+    database:'chsreenivas92',
+    password:'db-chsreenivas92-24567',
+    host:'db.imad.hasura-app.io',
+    port:'5432'
+    };
     
-    var user=document.getElementById("user").value;
-    console.log("submitted username :"+user);
-    //var templist=[];
-    request.onreadystatechange = function (){
-    if(request.readyState===XMLHttpRequest.DONE)
+var pool=new Pool(config)
+
+app.get('/testdb',function(req,res){
+    pool.query("select * from article",function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else
+            res.send(JSON.stringify(results.rows))
+    })
+    
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/counter', function(req, res){
+    counter++;
+   res.send(counter.toString());
+});
+app.get('/checklogin',function(req,res){
+    
+    if(req.session && req.session.auth && req.session.auth.userId)
     {
-     if(request.status === 200)
-        {
-            
-            var rs= JSON.parse(request.responseText); 
-            console.log("got response list "+rs);
-            var userlist = document.getElementById("userlist");
-            var responselist="";
-            for (i=0;i<rs.length;i++)
-            {
-                responselist+="<li>"+rs[i]+"</li>";
-            }
-            userlist.innerHTML = responselist;
-        }
+        res.send("u are already logged in bugger ur id is "+req.session.auth.userId.toString())
     }
-};
-request.open('GET','http://chsreenivas92.imad.hasura-app.io/submit-name?name='+user,true);
-request.send();
-};
-var login=$("#Login");
-//var register=;
+    else
+        res.send("u did not login yet")
+})
 
-$("#Register").click(function(){
-    console.log("clicked register button")
-    var username=$("#username").val();
-    var password=$("#password").val();
-    console.log("username and password are "+username+","+password);
-    var jsonObject={"user1":username,"pass1":password};
-    $.ajax({
-        url:'http://chsreenivas92.imad.hasura-app.io/register',
-        type:'post',
-        contentType:'application/json',
-        data:JSON.stringify(jsonObject),
-        success: function(data){
-            console.log(JSON.stringify(data));
-            alert(data)
-        },
-        error:function(data){
-            console.log(JSON.stringify(data));
-             alert("something went wrong,please try later")
-        } 
-        
-        
+app.get('/submit-name', function(req, res){
+    userlist.push(req.param("name"));
+   res.send(JSON.stringify(userlist));
+});
+
+app.get('/ui/main.js', function(req, res){
+   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
+
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+
+
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+function hash(password){
+    
+   var hashed=crypto.pbkdf2Sync(password,'putsomesalt',1000,512,'sha512');
+    return hashed.toString('hex');
+}
+app.post('/register',function(req,res){
+    var hashed_username=req.body.user1;
+    var hashed_password=hash(req.body.pass1);
+    pool.query("insert into users(username,password) values($1,$2)",[hashed_username,hashed_password],function(err,results){
+        if(err)
+           res.status(500).send(err.toString());
+        else
+            res.send("successfully created an entry for user "+hashed_username);
     });
    
 });
-$("#Login").click(function(){
-    console.log("clicked login button")
-    var username=$("#username").val();
-    var password=$("#password").val();
-    var inputparameters={"username":username,"password":password}
-      console.log("username and password are "+username+","+password);
-    $.ajax({
-        url:"http://chsreenivas92.imad.hasura-app.io/login",
-        type:'post',
-        contentType:'application/json',
-        data:JSON.stringify(inputparameters),
-        success : function(data)
-        {
-             alert("Successfully logged in!!!");
-             //console.log("success "+JSON.stringify(data));
-             //gotoarticlespage()
-        },
-        error : function(data){
-            alert("Login failed!!");
-            console.log("failed "+JSON.stringify(data));
+
+app.post('/login',function(req,res){
+    var username=req.body.username;
+    var password=hash(req.body.password);
+    pool.query("select * from users where username=$1 and password=$2",[username,password],function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else if(results.rows.length === 0)
+            res.status(400).send("Invalid credentials");
+        else if(results.rows.length === 1){
+            req.session.auth={userId:results.rows[0].id} ;
+            //res.send("Logged in successfully");
+            res.setHeaders('contentType:Text/HTML')
+            res.redirect ('https://www.google.com');
         }
-        
-        
-    })
-    
+        else
+            res.send("something went wrong please try later");
+    });
+});
+
+
+app.get('/logout',function(req,res){
+    delete req.session.auth;
+    res.send("you are logged out");
 })
-function gotoarticlespage()
+app.get('/articles/:article_name',function(req,res){
+     
+    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else
+            if(results.rows.length===0)
+                res.status(404).send("resource not found");
+            else
+                res.send(createtemplate(results.rows[0]));
+    });
+    //
+});
+function createtemplate(data)
 {
-    $.ajax({
-        url:"http://chsreenivas92.imad.hasura-app.io/articles/articleone",
-        type:'get',
-        contentType:"html",
-        success: function(data)
-        {
-            console.log("I am in article page")
-        },
-        error : function(data)
-        {
-            console.log("unable to make it"+data.toString())
-        }
-        
-    })
+    var Atitle=data.title;
+    var Acontent=data.content
+    var htmltemplate= 
+`<html>
+    <head>
+        <title>${Atitle}</title>
+        <link href="ui/style.css" rel="stylesheet"/>
+    </head>
+    <body class="articles">
+        <h1>${Acontent}</h1>
+    </body>
+</html>`;
+return htmltemplate;
 }
+// Do not change port, otherwise your app won't run on IMAD servers
+// Use 8080 only for local development if you already have apache running on 80
 
-
-
-
-
-
+var port = 80;
+app.listen(port, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
+});
