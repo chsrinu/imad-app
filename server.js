@@ -89,7 +89,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1)
         {
             req.session.auth={userId:results.rows[0].id} ;
-            res.redirect('/articles/articleone')
+            res.redirect('/articlelist')
         }
         else
             res.send("something went wrong please try later");
@@ -147,6 +147,7 @@ function CreateArticleListTemplate(titledata)
         <body><ul class="titledata">
     ${titledata.map(temp => `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}>
             ${temp.title}</a>
+            
             </li>`
      ).join('')}
  </ul>`;
