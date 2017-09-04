@@ -155,7 +155,7 @@ for(int i=0;i<titledata.length;i++)
         const markup = `<html>
         <body>
       <ul>str
-      </ul?
+      </ul>
  </body>
  </html>`;
         
