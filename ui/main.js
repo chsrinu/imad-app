@@ -107,7 +107,7 @@ $("#Login").click(function(){
 function gotoarticlespage()
 {
     $.ajax({
-        url:"http://chsreenivas92.imad.hasura-app.io/articleone",
+        url:"http://chsreenivas92.imad.hasura-app.io/articles/articleone",
         type:'get',
         contentType:"text/html",
         success: function(data)
