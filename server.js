@@ -39,7 +39,7 @@ app.get('/testdb',function(req,res){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('articles/:article_name',function(req,res){
+app.get('/articles/:article_name',function(req,res){
      
     pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
         if(err)
