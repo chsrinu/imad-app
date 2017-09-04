@@ -142,9 +142,7 @@ function CreateArticleListTemplate(titledata)
 {
         //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
         const markup = `<html>
-        <head>
-        <title>Article List</title>
-        </head>
+        
         <body><ul class="titledata">
     ${titledata.map(temp => `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}>
             ${temp.title}</a>
