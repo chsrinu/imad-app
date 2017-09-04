@@ -94,7 +94,7 @@ $("#Login").click(function(){
              alert("Successfully logged in!!!");
              console.log("success "+JSON.stringify(data));
              //gotoarticlespage()
-             window.location.replace('http://chsreenivas92.imad.hasura-app.io/articles/articleone')
+            
         },
         error : function(data){
             alert("Login failed!!");
