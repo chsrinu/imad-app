@@ -92,7 +92,7 @@ $("#Login").click(function(){
         complete: function() {
             //called when complete
             console.log('process complete');
-            window.location.replace("http://chsreenivas92.imad.hasura-app.io/articleone")
+            window.location.replace("http://chsreenivas92.imad.hasura-app.io/articles/articleone")
         },
         success : function(data)
         {
