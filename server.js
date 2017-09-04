@@ -96,7 +96,16 @@ app.post('/login',function(req,res){
     });
 });
 app.get('/articlelist',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'articles.html'));
+   pool.query("select title,name from articles",function(err,results){
+       if(err)
+        res.status(500).send(err.toString())
+       else if(results.rows.length === 0)
+        res.status(404).send("no data found")
+       else if(results.rows.length>0)
+        res.send(createArticleListTemplate(results.rows));
+       else
+        res.send("someerror has occured, please try later");
+   });
 });
 app.get('/logout',function(req,res){
     delete req.session.auth;
@@ -127,6 +136,23 @@ function createtemplate(data){
     </body>
     </html>`;
 return htmltemplate;
+}
+function CreateArticleListTemplate(titledata)
+{
+        //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
+        const markup = `<html>
+        <head>
+        <title>Article List</title>
+        </head>
+        <body><ul class="titledata">
+    ${titledata.map(temp => `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}>
+            ${temp.title}</a>
+            </li>`
+     ).join('')}
+ </ul>`;
+        
+    return markup;
+    
 }
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
