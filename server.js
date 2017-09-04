@@ -146,16 +146,16 @@ function createArticleListTemplate(titledata)
     { name: 'Sunny', age: 1 }
 ];
 
-const markup = `<html>
+/*const markup = `<html>
 <body>
 <ul class="dogs">
     ${dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`).join('')}
 </ul>
 </body>
 </html>`;
-    return markup;
+    return markup;*/
     
-      /*  //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
+       //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
         const markup = `<html>
         
         <body><ul class="titledata">
@@ -168,7 +168,7 @@ const markup = `<html>
  </body>
  </html>`;
         
-    return markup;*/
+    return markup;
     
 }
 // Do not change port, otherwise your app won't run on IMAD servers
