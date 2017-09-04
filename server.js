@@ -103,7 +103,7 @@ app.get('/articlelist',function(req,res){
        else if(results.rows.length === 0)
         res.status(404).send("no data found")
        else if(results.rows.length>0)
-        res.send(createArticleListTemplate(results.rows));
+        res.send(createArticleListTemplate(req,results.rows));
        else
         res.send("someerror has occured, please try later");
    });
@@ -138,7 +138,7 @@ function createtemplate(data){
     </html>`;
 return htmltemplate;
 }
-function createArticleListTemplate(titledata)
+function createArticleListTemplate(req,titledata)
 {
     const markup =
     `<html>
