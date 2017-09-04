@@ -100,8 +100,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1){
             req.session.auth={userId:results.rows[0].id} ;
             //res.send("Logged in successfully");
-            res.setHeaders('contentType:Text/HTML')
-            res.redirect ('https://www.google.com');
+            res.redirect ('/articles/articleone');
         }
         else
             res.send("something went wrong please try later");
