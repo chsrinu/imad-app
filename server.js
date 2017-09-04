@@ -138,7 +138,7 @@ function createtemplate(data){
     </html>`;
 return htmltemplate;
 }
-function CreateArticleListTemplate(titledata)
+function createArticleListTemplate(titledata)
 {
     const dogs = [
     { name: 'Snickers', age: 2 },
