@@ -146,7 +146,7 @@ function createArticleListTemplate(titledata)
     { name: 'Sunny', age: 1 }
 ];
 var str="";
-for(int i=0;i<titledata.length;i++)
+for(i=0;i<titledata.length;i++)
 {
     str=str+"&ltli&gt&lta href=\"http://chsreenivas92.imad.hasura-app.io/articles/articleone\"&gt"+ titledata.title+"&lt/a&gt&lt/li&gt "
 }
