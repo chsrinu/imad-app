@@ -145,22 +145,17 @@ function createArticleListTemplate(titledata)
     { name: 'Hugo', age: 8 },
     { name: 'Sunny', age: 1 }
 ];
-
-/*const markup = `<html>
-<body>
-<ul class="dogs">
-    ${dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`).join('')}
-</ul>
-</body>
-</html>`;
-    return markup;*/
+var str="";
+for(int i=0;i<titledata.length;i++)
+{
+    str=str+"&ltli&gt&lta href=\"http://chsreenivas92.imad.hasura-app.io/articles/articleone\"&gt"+ titledata.title+"&lt/a&gt&lt/li&gt "
+}
     
        //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
         const markup = `<html>
         <body>
-       <ul class="titledata">
-    ${titledata.map(temp => `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/articleone> ${temp.title}</a></li>`).join('')}
-</ul>
+      <ul>str
+      </ul?
  </body>
  </html>`;
         
