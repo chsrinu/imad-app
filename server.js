@@ -100,15 +100,8 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1)
         {
             req.session.auth={userId:results.rows[0].id} ;
-            pool.query("select * from article ",function(err,results){
-            if(err)
-                res.status(500).send(err.toString());
-            else if(results.rows.length===0)
-                res.status(404).send("resource not found");
-            else
-                res.send(createtemplate(results.rows[0]));
-            });
-            
+            res.setHeaders('contentType:text/html');
+            res.redirect('http://www.google.com');
         }
         else
             res.send("something went wrong please try later");
