@@ -97,7 +97,7 @@ app.post('/login',function(req,res){
     });
 });
 app.get('/articlelist',function(req,res){
-   pool.query("select title,name from articles",function(err,results){
+   pool.query("select title,name from article",function(err,results){
        if(err)
         res.status(500).send(err.toString())
        else if(results.rows.length === 0)
