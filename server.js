@@ -149,7 +149,7 @@ function CreateArticleListTemplate(titledata)
 const markup = `<html>
 <body>
 <ul class="dogs">
-    ${dogs.map(dog => <li>${dog.name} is ${dog.age * 7}</li>`).join('')}
+    ${dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`).join('')}
 </ul>
 </body>
 </html>`;
