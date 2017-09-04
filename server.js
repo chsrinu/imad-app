@@ -153,7 +153,7 @@ const markup = `<html>
 </ul>
 </body>
 </html>`;
-    
+    return markup;
     
       /*  //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
         const markup = `<html>
