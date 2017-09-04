@@ -94,6 +94,7 @@ $("#Login").click(function(){
              alert("Successfully logged in!!!");
              console.log("success "+JSON.stringify(data));
              //gotoarticlespage()
+            // window.location.replace('ui/articles.html')
         },
         error : function(data){
             alert("Login failed!!");
