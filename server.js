@@ -140,25 +140,17 @@ return htmltemplate;
 }
 function createArticleListTemplate(titledata)
 {
-    const dogs = [
-    { name: 'Snickers', age: 2 },
-    { name: 'Hugo', age: 8 },
-    { name: 'Sunny', age: 1 }
-];
-var str="";
-
-       //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
     const markup =
     `<html>
         <body>
-        <ul>
-            ${titledata.map(temp => 
-            `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
- </ul>
- </body>
- </html>`;
+            <ul>
+                ${titledata.map(temp => 
+                    `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
+            </ul>`
+       
         
-    return markup;
+    return markup+ `</body>
+    </html>`;
     
 }
 // Do not change port, otherwise your app won't run on IMAD servers
