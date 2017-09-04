@@ -101,7 +101,7 @@ app.post('/login',function(req,res){
         {
             req.session.auth={userId:results.rows[0].id} ;
             res.set('Content-Type', 'text/plain');
-            res.redirect('http://www.google.com');
+            res.redirect('/');
         }
         else
             res.send("something went wrong please try later");
