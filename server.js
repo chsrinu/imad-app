@@ -99,8 +99,8 @@ app.post('/login',function(req,res){
             res.status(400).send("Invalid credentials");
         else if(results.rows.length === 1){
             req.session.auth={userId:results.rows[0].id} ;
-            //res.send("Logged in successfully");
-            res.redirect('http://chsreenivas92.imad.hasura-app.io/articles/articleone');
+            res.send("Logged in successfully");
+            //res.redirect('http://chsreenivas92.imad.hasura-app.io/articles/articleone');
         }
         else
             res.send("something went wrong please try later");
