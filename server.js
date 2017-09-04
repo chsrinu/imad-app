@@ -101,7 +101,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1)
         {
             req.session.auth={userId:results.rows[0].id} ;
-            res.redirect('/articles/articleone')
+            res.redirect('/articlelist')
         }
         else
             res.send("something went wrong please try later");
