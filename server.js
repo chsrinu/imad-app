@@ -39,7 +39,19 @@ app.get('/testdb',function(req,res){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+app.get('/:article_name',function(req,res){
+     
+    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else
+            if(results.rows.length===0)
+                res.status(404).send("resource not found");
+            else
+                res.send(createtemplate(results.rows[0]));
+    });
+    //
+});
 app.get('/counter', function(req, res){
     counter++;
    res.send(counter.toString());
@@ -100,7 +112,7 @@ app.post('/login',function(req,res){
         else if(results.rows.length === 1){
             req.session.auth={userId:results.rows[0].id} ;
             //res.send("Logged in successfully");
-            res.redirect("http://google.com");
+            res.redirect('/articleone');
         }
         else
             res.send("something went wrong please try later");
@@ -112,19 +124,7 @@ app.get('/logout',function(req,res){
     delete req.session.auth;
     res.send("you are logged out");
 })
-app.get('/:article_name',function(req,res){
-     
-    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
-        if(err)
-            res.status(500).send(err.toString());
-        else
-            if(results.rows.length===0)
-                res.status(404).send("resource not found");
-            else
-                res.send(createtemplate(results.rows[0]));
-    });
-    //
-});
+
 function createtemplate(data)
 {
     var Atitle=data.title;
