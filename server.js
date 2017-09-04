@@ -101,7 +101,7 @@ app.post('/login',function(req,res){
             req.session.auth={userId:results.rows[0].id} ;
             //res.send("Logged in successfully");
             res.setHeader("Content-Type", "text/html")
-            res.redirect'/articles/articleone'
+            res.redirect('/articles/articleone')
         }
         else
             res.send("something went wrong please try later");
