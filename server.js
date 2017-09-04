@@ -78,18 +78,7 @@ app.post('/register',function(req,res){
     });
    
 });
-app.get('/articlelist',function(req,res){
-   pool.query("select title,name from articles",function(err,results){
-       if(err)
-        res.status(500).send(err.toString())
-       else if(results.rows.length === 0)
-        res.status(404).send("no data found")
-       else if(results.rows.length>0)
-        res.send(createArticleListTemplate(results.rows));
-       else
-        res.send("someerror has occured, please try later");
-   });
-});
+
 app.post('/login',function(req,res){
     var username=req.body.username;
     var password=hash(req.body.password);
@@ -107,7 +96,18 @@ app.post('/login',function(req,res){
             res.send("something went wrong please try later");
     });
 });
-
+app.get('/articlelist',function(req,res){
+   pool.query("select title,name from articles",function(err,results){
+       if(err)
+        res.status(500).send(err.toString())
+       else if(results.rows.length === 0)
+        res.status(404).send("no data found")
+       else if(results.rows.length>0)
+        res.send(createArticleListTemplate(results.rows));
+       else
+        res.send("someerror has occured, please try later");
+   });
+});
 app.get('/logout',function(req,res){
     delete req.session.auth;
     res.send("you are logged out");
@@ -140,7 +140,22 @@ return htmltemplate;
 }
 function CreateArticleListTemplate(titledata)
 {
-        //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
+    const dogs = [
+    { name: 'Snickers', age: 2 },
+    { name: 'Hugo', age: 8 },
+    { name: 'Sunny', age: 1 }
+];
+
+const markup = `<html>
+<body>
+<ul class="dogs">
+    ${dogs.map(dog => <li>${dog.name} is ${dog.age * 7}</li>`).join('')}
+</ul>
+</body>
+</html>`;
+    
+    
+      /*  //<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/"+urlAppend>uiLink</a></li>
         const markup = `<html>
         
         <body><ul class="titledata">
@@ -153,7 +168,7 @@ function CreateArticleListTemplate(titledata)
  </body>
  </html>`;
         
-    return markup;
+    return markup;*/
     
 }
 // Do not change port, otherwise your app won't run on IMAD servers
