@@ -97,11 +97,18 @@ app.post('/login',function(req,res){
             res.status(500).send(err.toString());
         else if(results.rows.length === 0)
             res.status(400).send("Invalid credentials");
-        else if(results.rows.length === 1){
+        else if(results.rows.length === 1)
+        {
             req.session.auth={userId:results.rows[0].id} ;
-            //res.send("Logged in successfully");
-            res.setHeader("Content-Type", "text/html")
-            res.redirect('/articles/articleone')
+            pool.query("select * from article ",function(err,results){
+            if(err)
+                res.status(500).send(err.toString());
+            else if(results.rows.length===0)
+                res.status(404).send("resource not found");
+            else
+                res.send(createtemplate(results.rows[0]));
+            });
+            
         }
         else
             res.send("something went wrong please try later");
