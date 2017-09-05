@@ -120,11 +120,11 @@ app.get('/articles/:article_name',function(req,res){
             if(results.rows.length===0)
                 res.status(404).send("resource not found");
             else
-                res.send(createtemplate(results.rows[0]));
+                res.send(results.rows[0]);
     });
     //
 });
-function createtemplate(data){
+/*function createtemplate(data){
     var Atitle=data.title;
     var Acontent=data.content;
     var htmltemplate= `<html>
@@ -137,7 +137,8 @@ function createtemplate(data){
     </body>
     </html>`;
 return htmltemplate;
-}
+}*/
+
 function createArticleListTemplate(req,titledata)
 {
     const markup =
