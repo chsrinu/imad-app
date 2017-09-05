@@ -149,13 +149,9 @@ function createArticleListTemplate(req,titledata)
             <ul>
                 ${titledata.map(temp => 
                     `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
-            </ul>
-            <br>
-            
-            <textarea rows="4" cols="50"></textarea>
-            <button id="ok">submit</button>`
-    return markup+ `</body>
+            </ul> </body>
     </html>`;
+    return markup;
     
 }
 // Do not change port, otherwise your app won't run on IMAD servers
