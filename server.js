@@ -36,14 +36,17 @@ app.get('/testdb',function(req,res){
     
 });
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+    if(checkSessionExpiry(req))
+        res.redirect('/articlelist')
+    else
+        res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/counter', function(req, res){
     counter++;
     res.send(counter.toString());
 });
 app.get('/checklogin',function(req,res){
-    if(req.session && req.session.auth && req.session.auth.userId)
+    if(checkSessionExpiry(req))
     {
         res.send("u are already logged in bugger ur id is "+req.session.auth.userId.toString())
     }
@@ -103,7 +106,7 @@ app.get('/articlelist',function(req,res){
        else if(results.rows.length === 0)
         res.status(404).send("no data found")
        else if(results.rows.length>0)
-        res.send(createArticleListTemplate(req,results.rows));
+        res.send(createArticleListTemplate(results.rows));
        else
         res.send("someerror has occured, please try later");
    });
@@ -131,11 +134,11 @@ function createtemplate(data,req){
     <head>
         <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
-        
+        <script src="articlescript.js"  type="text/javascript">
     </head>
     <body class="articles">
         <h1>${Acontent}</h1>`
-        if(req.session && req.session.auth && req.session.auth.userId)
+        
             {
                 htmltemplate+=`<textarea id="comment"rows=4 cols=40></textarea>
                             <button id="submitComment">Submit</button>`
@@ -149,7 +152,7 @@ function createtemplate(data,req){
 return htmltemplate;
 }
 
-function createArticleListTemplate(req,titledata)
+function createArticleListTemplate(titledata)
 {
     const markup =
     `<html>
@@ -162,6 +165,12 @@ function createArticleListTemplate(req,titledata)
             </ul> </body>
     </html>`;
     return markup;
+}
+function checkSessionExpiry(req)
+{
+    if(req.session && req.session.auth && req.session.auth.userId)
+        return true;
+    return false;
 }
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
