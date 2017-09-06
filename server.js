@@ -137,7 +137,7 @@ function createtemplate(data,req){
         <h1>${Acontent}</h1>`
         if(req.session && req.session.auth && req.session.auth.userId)
             {
-                htmltemplate+=`<textarea id="comment"rows=4 cols=20></textarea>
+                htmltemplate+=`<textarea id="comment"rows=4 cols=40></textarea>
                             <button id="submitComment">Submit</button>`
             }
         htmltemplate+=`<ul id="commentsList">
@@ -162,7 +162,6 @@ function createArticleListTemplate(req,titledata)
             </ul> </body>
     </html>`;
     return markup;
-    
 }
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
