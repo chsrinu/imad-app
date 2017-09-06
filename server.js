@@ -120,7 +120,7 @@ app.get('/articles/:article_name',function(req,res){
             if(results.rows.length===0)
                 res.status(404).send("resource not found");
             else
-                res.send(createtemplate(results.rows[0],req);
+                res.send(createtemplate(results.rows[0],req));
     });
     //
 });
