@@ -124,14 +124,14 @@ app.get('/articles/:article_name',function(req,res){
     });
     //
 });
-function createtemplate(data){
+function createtemplate(data,req){
     var Atitle=data.title;
     var Acontent=data.content;
     var htmltemplate= `<html>
     <head>
         <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
-        <script src="articlescript.js"  type="text/javascript">
+        
     </head>
     <body class="articles">
         <h1>${Acontent}</h1>`
