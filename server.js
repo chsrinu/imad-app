@@ -120,24 +120,34 @@ app.get('/articles/:article_name',function(req,res){
             if(results.rows.length===0)
                 res.status(404).send("resource not found");
             else
-                res.send(results.rows[0]);
+                res.send(createtemplate(results.rows[0]),req);
     });
     //
 });
-/*function createtemplate(data){
+function createtemplate(data){
     var Atitle=data.title;
     var Acontent=data.content;
     var htmltemplate= `<html>
     <head>
         <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
+        <script src="articlescript.js"  type="text/javascript">
     </head>
     <body class="articles">
-        <h1>${Acontent}</h1>
-    </body>
-    </html>`;
+        <h1>${Acontent}</h1>`
+        if(req.session && req.session.auth && req.session.auth.userId)
+            {
+                htmltemplate+=`<textarea id="comment"rows=4 cols=20></textarea>
+                            <button id="submitComment">Submit</button>`
+            }
+        htmltemplate+=`<ul id="commentsList">
+        <li><p>comment1<p></li>
+        <li><p>comment2<p></li>
+        </ul>
+        </body>
+        </html>`;
 return htmltemplate;
-}*/
+}
 
 function createArticleListTemplate(req,titledata)
 {
