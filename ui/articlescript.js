@@ -1,9 +1,8 @@
 
 $(document).ready(function(){
     console.log("Jquery ready")
-    var title=$("title").val()
-    var title1 = $(this).attr('title');
-    console.log(title,"and",title1);
+    console.log(document.title,"is title")
+   
 });
 
 if($("#commentbox"))
