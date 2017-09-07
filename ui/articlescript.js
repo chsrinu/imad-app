@@ -30,19 +30,12 @@ if(submitbutton)
                 data:JSON.stringify(inputparameters),
                 success : function(data){//reload the comments
                     console.log("post request successful "+data)
-                    /*var results=JSON.parse(data)
-                    var commentlist=""
-                    for(i=0;i<results.length;i++)
-                    {
-                        commentlist="<li>"+results[i]+"</li>"
-                    }
-                    $("#commentsList").html(commentlist);*/
                 },
                 error   : function(data){//show the error
                      console.log(JSON.stringify(data))
-                },
+                }
                 
-        })
+            })
         }
         
     });
