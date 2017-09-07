@@ -17,7 +17,8 @@ if(submitbutton)
     submitbutton.click(function()
     {
         console.log("submit button clicked")
-        var commenttext=$("#commentbox").val()
+        var commentText=$("#commentbox").val()
+        inputparameters={articletitle:document.title,commentText:commentText}
         if(len(commenttext)===0)
         alert("Please enter some text before submitting your comment")
         else//we need to update the comment in the database through a post request and reload the comments
@@ -27,6 +28,11 @@ if(submitbutton)
                 type:'post',
                 contentType:'application/json',
                 data:JSON.stringify(inputparameters),
+                success : function(data){//reload the comments
+                },
+                error   : function(data){//show the error
+                    
+                },
                 
         })
         }
