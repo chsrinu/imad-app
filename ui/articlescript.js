@@ -11,7 +11,7 @@ if($("#commentbox"))
 }
 else
     console.log("session ended")
-var submitbutton=$("#submit")
+var submitbutton=$("#submitComment")
 if(submitbutton)
 {
     submitbutton.click(function()
