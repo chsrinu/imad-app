@@ -110,14 +110,14 @@ app.post('/uploadcomment',function(req,res){
         res.status(500).send(err.toString())
        else 
         {
-            pool.query("select * from articlecomments where articletitle=$1",[title],function(results,err){
-                if(err)
-                res.status(500).send(err.toString())  
-                else if(results.rows.length === 0)
-                res.status(400).send("unable to update comments now")
-                else
-                    res.send(results.rows.length.toString())
-            });
+          pool.query("select * from users ",function(err,results){
+        if(err)
+            res.status(500).send(err.toString());
+        else if(results.rows.length === 0)
+            res.status(400).send("Invalid credentials");
+        else if(results.rows.length === 1)
+        {
+            res.send("got the result successfully "+results.rows.length.toString())
         }
         //else
         //res.send("Comments has been posted"+results.toString());
