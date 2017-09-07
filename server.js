@@ -131,7 +131,7 @@ function createtemplate(data,req){
     var Atitle=data.title;
     var Acontent=data.content;
     
-    var htmltemplate= `<html>
+    var htmltemplate=`<html>
     <head>
         <title>${Atitle}</title>
         <link href="/ui/style.css" rel="stylesheet"/>
@@ -149,7 +149,7 @@ function createtemplate(data,req){
         <li><p>comment1<p></li>
         <li><p>comment2<p></li>
         </ul>
-        <script type="text/javascript" src="/articlescript.js"></script>
+        <script type="text/javascript" src="/ui/articlescript.js"></script>
         
         </body>
         </html>`;
