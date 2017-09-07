@@ -108,7 +108,7 @@ app.post('/uploadcomment',function(req,res){
    pool.query("Insert into articleComments values($1,$2)",[title,comment],function(results,err){
        if(err)
         res.status(500).send(err.toString())
-       else 
+       /*else 
         {
             pool.query("select comments from articleComments where articleTitle=$1",[title],function(results,err){
                 if(err)
@@ -120,7 +120,7 @@ app.post('/uploadcomment',function(req,res){
                     res.send(JSON.stringify(results))
                 }
             });
-        }
+        }*/
         res.send("Comments has been posted"+results.toString());
    })
 });
