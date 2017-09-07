@@ -117,10 +117,9 @@ app.post('/uploadcomment',function(req,res){
                 res.status(400).send("Invalid credentials");
             else if(results.rows.length > 0)
                 res.send("got the result successfully "+results.rows.length.toString())
-        }
-        //else
-        //res.send("Comments has been posted"+results.toString());
-   })
+        });
+   }
+});
 });
 app.get('/articlelist',function(req,res){
    pool.query("select title,name from article",function(err,results){
