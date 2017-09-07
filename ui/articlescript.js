@@ -39,7 +39,7 @@ if(submitbutton)
                     $("#commentsList").html(commentlist);
                 },
                 error   : function(data){//show the error
-                     console.log(data.toString())
+                     console.log(JSON.parse(data))
                 },
                 
         })
