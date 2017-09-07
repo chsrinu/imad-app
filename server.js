@@ -148,6 +148,7 @@ function createtemplate(data,req){
                 htmltemplate+=`<textarea id="commentbox"rows=4 cols=40></textarea>
                             <button id="submitComment">Submit</button>`
             }
+        //get the comments data here itself
         htmltemplate+=`<ul id="commentsList">
         <li><p>comment1<p></li>
         <li><p>comment2<p></li>
