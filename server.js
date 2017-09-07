@@ -136,7 +136,7 @@ function createtemplate(data,req){
         <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="articlescript.js"  type="text/javascript">
+        
     </head>
     <body class="articles">
         <h1>${Acontent}</h1>`
@@ -149,6 +149,7 @@ function createtemplate(data,req){
         <li><p>comment1<p></li>
         <li><p>comment2<p></li>
         </ul>
+        <script src="articlescript.js"  type="text/javascript">
         </body>
         </html>`;
 return htmltemplate;
