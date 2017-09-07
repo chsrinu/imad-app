@@ -108,21 +108,19 @@ app.post('/uploadcomment',function(req,res){
    pool.query("INSERT INTO articlecomments(articletitle, comments) VALUES ($1,$2)",[title,comment],function(results,err){
        if(err)
         res.status(500).send(err.toString())
-       /*else 
+       else 
         {
-            pool.query("select comments from articleComments where articleTitle=$1",[title],function(results,err){
+            pool.query("select comments from articleComments where articletitle=$1",[title],function(results,err){
                 if(err)
                 res.status(500).send(err.toString())  
                 else if(results.rows.length === 0)
-                res.status(400).send("unable to update comments")
+                res.status(400).send("unable to update comments now")
                 else
-                {
                     res.send(JSON.stringify(results))
-                }
             });
-        }*/
-        else
-        res.send("Comments has been posted"+results.toString());
+        }
+        //else
+        //res.send("Comments has been posted"+results.toString());
    })
 });
 app.get('/articlelist',function(req,res){
