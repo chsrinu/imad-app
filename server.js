@@ -103,14 +103,14 @@ app.post('/login',function(req,res){
     });
 });
 app.post('/uploadcomment',function(req,res){
-   var title=req.body.articleTitle
-   var comment=req.body.commentText
-   pool.query("INSERT INTO articlecomments(articletitle, comments) VALUES ($1,$2)",[title,comment],function(results,err){
+   var title=req.body.articleTitle;
+   var comment=req.body.commentText;
+   pool.query("INSERT INTO articlecomments(articletitle,comments) VALUES($1,$2)",[title,comment],function(results,err){
        if(err)
         res.status(500).send(err.toString())
        else
         res.send("successfully updated the comments")
-});
+    });
 });
 app.get('/articlelist',function(req,res){
    pool.query("select title,name from article",function(err,results){
