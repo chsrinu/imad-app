@@ -121,6 +121,7 @@ app.post('/uploadcomment',function(req,res){
                 }
             });
         }*/
+        else
         res.send("Comments has been posted"+results.toString());
    })
 });
