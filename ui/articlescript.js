@@ -3,7 +3,10 @@ $(document).ready(function(){
     console.log("Jquery ready")
 });
 
-if (document.readyState === 'complete') {
-    console.log("JS ready")
-    // document ready
-  }
+if($("#commentbox"))
+{
+    console.log("session still exists")
+}
+else
+    console.log("session ended")
+
