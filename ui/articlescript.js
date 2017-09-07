@@ -1,7 +1,9 @@
 
 $(document).ready(function(){
     console.log("Jquery ready")
-    console.log("title is "+$("title").val());
+    var title=$("title").val()
+    var title1 = $(this).attr('title');
+    console.log(title,"and",title1);
 });
 
 if($("#commentbox"))
@@ -13,7 +15,7 @@ else
 var submitbutton=$("#submit")
 if(submitbutton)
 {
-    submitbutton.onclick(function()
+    submitbutton.click(function()
     {
         console.log("submit button clicked")
         var commenttext=$("#commentbox").val()
