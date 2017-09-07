@@ -102,6 +102,28 @@ app.post('/login',function(req,res){
             res.send("something went wrong please try later");
     });
 });
+app.post('/uploadcomment',function(req,res){
+   var title=req.body.articleTitle
+   var comment=req.body.commentText
+   pool.query("Insert into articleComments values($1,$2)",[title,comment],function(results,err){
+       if(err)
+        res.status(500).send(err.toString())
+       else 
+        {
+            pool.query("select comments from articleComments where articleTitle=$1",[title],function(results,err){
+                if(err)
+                res.status(500).send(err.toString())  
+                else if(results.rows.length === 0)
+                res.status(400).send("unable to update comments")
+                else
+                {
+                    res.send(JSON.stringify(results))
+                }
+            });
+        }
+        res.send("Comments has been posted"+results.toString());
+   })
+});
 app.get('/articlelist',function(req,res){
    pool.query("select title,name from article",function(err,results){
        if(err)
