@@ -130,18 +130,19 @@ app.get('/articles/:article_name',function(req,res){
 function createtemplate(data,req){
     var Atitle=data.title;
     var Acontent=data.content;
-   // <script src="articlescript.js"  type="text/javascript">
+    
     var htmltemplate= `<html>
     <head>
         <title>${Atitle}</title>
         <link href="ui/style.css" rel="stylesheet"/>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="articlescript.js"  type="text/javascript">
     </head>
     <body class="articles">
         <h1>${Acontent}</h1>`
         
             {
-                htmltemplate+=`<textarea id="comment"rows=4 cols=40></textarea>
+                htmltemplate+=`<textarea id="commentbox"rows=4 cols=40></textarea>
                             <button id="submitComment">Submit</button>`
             }
         htmltemplate+=`<ul id="commentsList">
