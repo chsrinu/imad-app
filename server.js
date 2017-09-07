@@ -140,7 +140,7 @@ function createtemplate(data,req){
     </head>
     <body class="articles">
         <h1>${Acontent}</h1>`
-        
+            if(checkSessionExpiry())
             {
                 htmltemplate+=`<textarea id="commentbox"rows=4 cols=40></textarea>
                             <button id="submitComment">Submit</button>`
