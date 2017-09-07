@@ -110,7 +110,7 @@ app.post('/uploadcomment',function(req,res){
         res.status(500).send(err.toString())
        else 
         {
-            pool.query("select comments from articleComments where articletitle=$1",[title],function(results,err){
+            pool.query("select comments from articlecomments where articletitle=$1",[title],function(results,err){
                 if(err)
                 res.status(500).send(err.toString())  
                 else if(results.rows.length === 0)
