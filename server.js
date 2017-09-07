@@ -134,7 +134,7 @@ function createtemplate(data,req){
     var htmltemplate= `<html>
     <head>
         <title>${Atitle}</title>
-        <link href="ui/style.css" rel="stylesheet"/>
+        <link href="/ui/style.css" rel="stylesheet"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         
     </head>
@@ -149,7 +149,7 @@ function createtemplate(data,req){
         <li><p>comment1<p></li>
         <li><p>comment2<p></li>
         </ul>
-        <script type="text/javascript" src="articlescript.js"></script>
+        <script type="text/javascript" src="/articlescript.js"></script>
         
         </body>
         </html>`;
