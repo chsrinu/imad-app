@@ -149,7 +149,7 @@ function createtemplate(data,req){
         <li><p>comment1<p></li>
         <li><p>comment2<p></li>
         </ul>
-        <script type="text/javascript" src="/ui/articlescript.js"></script>
+        <script type="text/javascript" src="/ui/articlescript"></script>
         
         </body>
         </html>`;
