@@ -108,17 +108,8 @@ app.post('/uploadcomment',function(req,res){
    pool.query("INSERT INTO articlecomments(articletitle, comments) VALUES ($1,$2)",[title,comment],function(results,err){
        if(err)
         res.status(500).send(err.toString())
-       else 
-        {
-          pool.query("select * from users ",function(err,results){
-            if(err)
-                res.status(500).send(err.toString());
-            else if(results.rows.length === 0)
-                res.status(400).send("Invalid credentials");
-            else if(results.rows.length > 0)
-                res.send("got the result successfully "+results.rows.length.toString())
-        });
-   }
+       else
+        res.send("successfully updated the comments"+results.affectedRows.toString())
 });
 });
 app.get('/articlelist',function(req,res){
