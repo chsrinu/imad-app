@@ -116,7 +116,7 @@ app.post('/uploadcomment',function(req,res){
                 else if(results.rows.length === 0)
                 res.status(400).send("unable to update comments now")
                 else
-                    res.send(JSON.stringify(results.rows))
+                    res.send(results.rows[0])
             });
         }
         //else
