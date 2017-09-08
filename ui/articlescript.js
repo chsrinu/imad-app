@@ -33,7 +33,7 @@ if(submitbutton)
                     console.log("Post request successful so updating the same data in html"+data)
                    // var rs=JSON.parse(data)
                     for (var key in data) {
-                        if (p.hasOwnProperty(key)) {
+                        if (data.hasOwnProperty(key)) {
                                  console.log(key + " -> " + p[key]);
                         }
                     }
