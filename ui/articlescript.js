@@ -32,7 +32,7 @@ if(submitbutton)
                 success : function(data){//reload the comments
                     console.log("Post request successful so updating the same data in html"+data)
                    // var rs=JSON.parse(data)
-                    
+                    var commentlist="";
                     for(var i=0;i<data.length;i++)
                     {
                         console.log("comment is "+data[i].comments)
