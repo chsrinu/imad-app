@@ -24,11 +24,11 @@ if(submitbutton)
         else//we need to update the comment in the database through a post request and reload the comments
         {
             $.ajax({
-                url:"http://chsreenivas92.imad.hasura-app.io/uploadcomment",
+                url:"http://chsreenivas92.imad.hasura-app.io/uploadcomment?commentText=mock comment text&articleTitle="+document.title,
                 contentType:'application/json',
-                data:JSON.stringify(inputparameters),
+                //data:JSON.stringify(inputparameters),
                 success : function(data){//reload the comments
-                    console.log("post request successful "+data)
+                    console.log("Get request successful "+data)
                 },
                 error   : function(data){//show the error
                      console.log(JSON.stringify(data))
