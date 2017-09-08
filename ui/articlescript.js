@@ -32,10 +32,11 @@ if(submitbutton)
                 success : function(data){//reload the comments
                     console.log("Post request successful so updating the same data in html"+data)
                    // var rs=JSON.parse(data)
-                    var commentlist=""
-                    Object.keys(data).forEach(function(key) {
-                            console.log(key, data[key]);
-                    })
+                    for (var key in data) {
+                        if (p.hasOwnProperty(key)) {
+                                 console.log(key + " -> " + p[key]);
+                        }
+                    }
                     /*for(vari=0;i<rs.length;i++)
                     {
                         commentlist+=rs[i];
