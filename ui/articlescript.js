@@ -33,10 +33,13 @@ if(submitbutton)
                     console.log("Post request successful so updating the same data in html"+data)
                    // var rs=JSON.parse(data)
                     var commentlist="";
-                    for(var i=0;i<data.length;i++)
-                    {
-                        console.log("comment is "+data[i].comments)
-                        commentlist+="<li>"+data[i].comments+"</li>";
+                    for (var i = 0; i < data.length; i++){
+                        var obj = data[i];
+                        for (var key in obj){
+                            var attrName = key;
+                            var attrValue = obj[key];
+                            console.log(attrValue);
+                        }
                     }
                     $("#commentList").html(commentlist);
                 },
