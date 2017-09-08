@@ -102,9 +102,9 @@ app.post('/login',function(req,res){
             res.send("something went wrong please try later");
     });
 });
-app.get('/uploadcomment',function(req,res){
-   var title=req.query.articleTitle;
-   var comment=req.query.commentText;
+app.post('/uploadcomment',function(req,res){
+   var title=req.body.articleTitle;
+   var comment=req.body.commentText;
    pool.query("insert into articlecomments(articletitle,comments) values($1,$2)",[title,comment],function(err,results){
        if(err)
         res.status(500).send(err.toString())
