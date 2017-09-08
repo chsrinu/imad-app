@@ -109,7 +109,7 @@ app.get('/uploadcomment',function(req,res){
        if(err)
         res.status(500).send(err.toString())
        else
-        res.send("successfully updated the comments")
+        res.send("successfully updated the comments"+title+" and "+comment)
     });
 });
 app.get('/articlelist',function(req,res){
