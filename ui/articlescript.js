@@ -17,7 +17,7 @@ if(submitbutton)
     submitbutton.click(function()
     {
         console.log("submit button clicked")
-        var commentText=$("#commentbox").val()
+        var commentText="mokc the comment text"
         inputparameters={articleTitle:document.title,commentText:commentText}
         if(commentText.length === 0)
         alert("Please enter some text before submitting your comment")
@@ -25,7 +25,6 @@ if(submitbutton)
         {
             $.ajax({
                 url:"http://chsreenivas92.imad.hasura-app.io/uploadcomment",
-                type:'post',
                 contentType:'application/json',
                 data:JSON.stringify(inputparameters),
                 success : function(data){//reload the comments
