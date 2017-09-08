@@ -35,7 +35,7 @@ if(submitbutton)
                     var commentlist="";
                     for (var i = 0; i < data.length; i++){
                         var obj = data[i];
-                        console.log('%j', JSON.parse(obj))
+                        console.log(obj.comments)
                     }
                     $("#commentList").html(commentlist);
                 },
