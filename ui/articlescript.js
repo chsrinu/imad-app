@@ -33,10 +33,10 @@ if(submitbutton)
                     console.log("Post request successful so updating the same data in html"+data)
                    // var rs=JSON.parse(data)
                     var commentlist="";
-                    for (var i = 0; i < data.length; i++){
-                        var obj = data[i];
+                    
+                        var obj = data[0];
                         console.log(obj.comments)
-                    }
+                    
                     $("#commentList").html(commentlist);
                 },
                 error   : function(data){//show the error
