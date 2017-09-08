@@ -31,7 +31,8 @@ if(submitbutton)
                     console.log("Get request successful "+data)
                 },
                 error   : function(data){//show the error
-                     console.log(data.toString())
+                     //console.log(data.toString())
+                     console.log('%j', data);
                 }
                 
             })
