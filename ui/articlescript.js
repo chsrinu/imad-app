@@ -30,7 +30,7 @@ if(submitbutton)
                 contentType:'application/json',
                 data:JSON.stringify(inputparameters),
                 success : function(data){//reload the comments
-                    console.log("Post request successful so updating the same data in html"+data)
+                    console.log("Post request successful so updating the same data in html"+JSON.parse(data))
                     console.log("Parsed data is "+JSON.parse(data))
                     var rs=JSON.parse(data)
                     var commentlist=""
