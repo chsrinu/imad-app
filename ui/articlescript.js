@@ -31,7 +31,7 @@ if(submitbutton)
                     console.log("Get request successful "+data)
                 },
                 error   : function(data){//show the error
-                     console.log(JSON.stringify(data))
+                     console.log(data.toString())
                 }
                 
             })
