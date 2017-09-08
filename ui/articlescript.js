@@ -34,7 +34,7 @@ if(submitbutton)
                    // var rs=JSON.parse(data)
                     for (var key in data) {
                         if (data.hasOwnProperty(key)) {
-                                 console.log(key + " -> " + p[key]);
+                                 console.log(key + " -> " + data[key]);
                         }
                     }
                     /*for(vari=0;i<rs.length;i++)
