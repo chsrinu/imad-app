@@ -35,7 +35,7 @@ if(submitbutton)
                     var commentlist="";
                     for(i=0;i<data.length;i++)
                     {
-                        console.log(data[i].comments)
+                        console.log(data[i].comments.toString())
                     }
                     $("#commentList").html(commentlist);
                 },
