@@ -30,7 +30,15 @@ if(submitbutton)
                 contentType:'application/json',
                 data:JSON.stringify(inputparameters),
                 success : function(data){//reload the comments
-                    console.log("Post request successful "+data)
+                    console.log("Post request successful so updating the same data in html"+data)
+                    console.log("Parsed data is "+JSON.parse(data))
+                    var rs=JSON.parse(data)
+                    var commentlist=""
+                    for(vari=0;i<rs.length;i++)
+                    {
+                        commentlist+=rs[i];
+                    }
+                    $("#commentList").html(commentlist);
                 },
                 error   : function(data){//show the error
                      //console.log(data.toString())
