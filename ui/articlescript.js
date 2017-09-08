@@ -30,7 +30,7 @@ if(submitbutton)
                 contentType:'application/json',
                 data:JSON.stringify(inputparameters),
                 success : function(data){//reload the comments
-                    console.log("Get request successful "+data)
+                    console.log("Post request successful "+data)
                 },
                 error   : function(data){//show the error
                      //console.log(data.toString())
