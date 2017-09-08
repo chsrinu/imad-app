@@ -105,7 +105,7 @@ app.post('/login',function(req,res){
 app.get('/uploadcomment',function(req,res){
    var title=req.query.articleTitle;
    var comment=req.query.commentText;
-   pool.query("insert into users(username,password) values($1,$2)",[title,comment],function(err,results){
+   pool.query("insert into articlecomments(articletitle,comments) values($1,$2)",[title,comment],function(err,results){
        if(err)
         res.status(500).send(err.toString())
        else
