@@ -108,8 +108,16 @@ app.post('/uploadcomment',function(req,res){
    pool.query("insert into articlecomments(articletitle,comments) values($1,$2)",[title,comment],function(err,results){
        if(err)
         res.status(500).send(err.toString())
-       else
-        res.send("successfully updated the comments"+JSON.stringify(results))
+       else{
+           //res.send("successfully updated the comments returns the comments"+JSON.stringify(results))
+       pool.query("select comments from articlecomments where articletitle=$1",[title],function(err,results){
+           if(err)
+            res.status(500).send(err.toString())
+           else
+            res.send("successfully updated the comments and reloading"+JSON.stringify(results))
+       })
+       }
+        
     });
 });
 app.get('/articlelist',function(req,res){
