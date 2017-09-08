@@ -17,7 +17,7 @@ if(submitbutton)
     submitbutton.click(function()
     {
         console.log("submit button clicked")
-        var commentText="mokc the comment text"
+        var commentText=$("#commentbox").val()
         inputparameters={"articleTitle":document.title,"commentText":commentText}
         if(commentText.length === 0)
         alert("Please enter some text before submitting your comment")
