@@ -32,15 +32,12 @@ if(submitbutton)
                 success : function(data){//reload the comments
                     console.log("Post request successful so updating the same data in html"+data)
                    // var rs=JSON.parse(data)
-                    for (var key in data) {
-                        if (data.hasOwnProperty(key)) {
-                                 console.log(key + " -> " + data[key]);
-                        }
-                    }
-                    /*for(vari=0;i<rs.length;i++)
+                    
+                    for(var i=0;i<data.length;i++)
                     {
-                        commentlist+=rs[i];
-                    }*/
+                        console.log("comment is "+data[i].comments)
+                        commentlist+="<li>"+data[i].comments+"</li>";
+                    }
                     $("#commentList").html(commentlist);
                 },
                 error   : function(data){//show the error
