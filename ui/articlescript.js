@@ -34,7 +34,7 @@ if(submitbutton)
                 },
                 error   : function(data){//show the error
                      //console.log(data.toString())
-                     console.log('%j', data);
+                     console.log('%j', JSON.parse(data));
                 }
                 
             })
