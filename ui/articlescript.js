@@ -1,7 +1,8 @@
 
 $(document).ready(function(){
-    console.log("Jquery ready")
-    console.log(document.title,"is title")
+    console.log("Jquery ready");
+    console.log(document.title,"is title");
+    $("commentsList").html(sampletext);
    
 });
 
