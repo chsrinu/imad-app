@@ -176,8 +176,8 @@ function createtemplate(data,req){
             }
         
         //get the comments data here itself
-        htmltemplate+=`<p><h3>Comments about this Article</h3></p>
-        <ul id="commentsList"></ul>
+        htmltemplate+=`<p><h3>Comments about this Article:</h3></p>
+        <ul id="commentsList">`+comments+`</ul>
         <script type="text/javascript" src="/ui/articlescript.js"></script>
         </body>
         </html>`;
