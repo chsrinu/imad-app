@@ -2,8 +2,10 @@
 $(document).ready(function(){
     console.log("Jquery ready");
     console.log(document.title,"is title");
-    $("commentsList").html(sampletext);
-   
+    var temp=$("#commentsList").text()
+    console.log("comments list is "+temp)
+    if(!temp)
+        $("#commentsList").html("");
 });
 
 if($("#commentbox"))
