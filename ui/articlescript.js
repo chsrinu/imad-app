@@ -3,7 +3,7 @@ $(document).ready(function(){
     console.log("Jquery ready");
     console.log(document.title,"is title");
     var temp=$("#commentsList").text()
-    console.log("comments list is "+temp)
+    console.log("comments list is "+temp+" "+temp.length)
     if(temp === "")
         {console.log("comments list is "+temp)
         $("#commentsList").html("");
