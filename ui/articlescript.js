@@ -18,7 +18,8 @@ if(submitbutton)
     {
         console.log("submit button clicked")
         var commentText=$("#commentbox").val()
-        console.log("pathname of url is "+location.pathname);
+        var urlpath=location.pathname;
+        console.log("pathname of url is "+url.path.substr(urlpath.lastIndexOf('/')+1));
         inputparameters={"articleTitle":document.title,"commentText":commentText}
         if(commentText.length === 0)
             alert("Please enter some text before submitting your comment");
