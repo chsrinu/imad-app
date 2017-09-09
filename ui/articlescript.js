@@ -37,7 +37,7 @@ if(submitbutton)
                     for(i=0;i<rs.length;i++)
                     {
                         console.log(rs[i].comments);
-                        commmentlist+="<li>"+rs[i].comments+"</li>"
+                        commmentlist=commentlist+"<li>"+rs[i].comments+"</li>"
                     }
                     
                     $("#commentsList").html(commentlist);
