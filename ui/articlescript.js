@@ -39,7 +39,8 @@ if(submitbutton)
                         console.log(rs[i].comments);
                         commmentlist="<li>"+rs[i].comments+"</li>"
                     }
-                    $("#commentList").html(commentlist);
+                    
+                    $("#commentsList").html(commentlist);
                 },
                 error   : function(data){//show the error
                      //console.log(data.toString())
