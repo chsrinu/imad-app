@@ -96,7 +96,7 @@ $("#Login").click(function(){
         },
         success : function(data)
         {
-             alert("Successfully logged in!!!");
+             //alert("Successfully logged in!!!");
              console.log("success "+JSON.stringify(data));
              //gotoarticlespage()
             
