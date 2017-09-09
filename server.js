@@ -188,7 +188,8 @@ function createArticleListTemplate(titledata)
     const markup =
     `<html>
         <head>
-            
+         <link href="/ui/style.css" rel="stylesheet"/>
+        </head>
         <body>
             <ul>
                 ${titledata.map(temp => 
