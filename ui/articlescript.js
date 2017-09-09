@@ -40,8 +40,9 @@ if(submitbutton)
                         commentlist+="<li>"+rs[i].comments+"</li>"
                     }
                     console.log(commentlist);
-                    document.getElementById("commentbox").innerHTML=" "
-                    $("#commentsList").html(commentlist);
+                    //document.getElementById("commentbox").innerHTML=" "
+                    $("#commentbox").val('');
+                    $("#commentsList").val(commentlist);
                 },
                 error   : function(data){//show the error
                      //console.log(data.toString())
