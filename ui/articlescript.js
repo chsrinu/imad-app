@@ -3,8 +3,8 @@ $(document).ready(function(){
     console.log("Jquery ready");
     console.log(document.title,"is title");
     var temp=$("#commentsList").text()
-   // if(temp === "null")
-     //   $("#commentsList").html("");
+    if(temp === "null")
+        $("#commentsList").html("");
 });
 
 if($("#commentbox"))
