@@ -5,7 +5,9 @@ $(document).ready(function(){
     var temp=$("#commentsList").text()
     console.log("comments list is "+temp)
     if(!temp)
+        {console.log("comments list is "+temp)
         $("#commentsList").html("");
+        }
 });
 
 if($("#commentbox"))
