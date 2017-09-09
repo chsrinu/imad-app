@@ -157,7 +157,7 @@ function createtemplate(data,req){
     var comments="";
     for(i=0;i<data.length;i++)
     {
-       comments+= "<li>"+data[0].comments+"</li>"
+       comments+= "<li>"+data[i].comments+"</li>"
     }
     var htmltemplate=`<html>
     <head>
