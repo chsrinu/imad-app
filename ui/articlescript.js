@@ -4,7 +4,7 @@ $(document).ready(function(){
     console.log(document.title,"is title");
     var temp=$("#commentsList").text()
     console.log("comments list is "+temp)
-    if(temp === null)
+    if(temp === "")
         {console.log("comments list is "+temp)
         $("#commentsList").html("");
         }
