@@ -42,7 +42,7 @@ if(submitbutton)
                     console.log(commentlist);
                     //document.getElementById("commentbox").innerHTML=" "
                     $("#commentbox").val('');
-                    $("#commentsList").html(commentlist);
+                    $("#commentsList").val('');
                 },
                 error   : function(data){//show the error
                      //console.log(data.toString())
