@@ -112,10 +112,10 @@ app.post('/uploadcomment',function(req,res){
            //res.send("successfully updated the comments returns the comments"+JSON.stringify(results))
        pool.query("select comments from articlecomments where articletitle=$1",[title],function(err,results){
            if(err)
-            res.status(500).send(err.toString())
+            res.status(500).send(err.toString());
            else
-            res.send(JSON.stringify(results.rows))
-       })
+            res.send(JSON.stringify(results.rows));
+       });
        }
         
     });
@@ -205,3 +205,7 @@ var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+/*function getComments()
+{
+    return
+}*/
