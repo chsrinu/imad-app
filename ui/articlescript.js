@@ -13,13 +13,13 @@ if($("#commentbox"))
 }
 else
     console.log("session ended")
-var submitbutton=$("#submitComment")
+var submitbutton=$("#submitComment");
 if(submitbutton)
 {
     submitbutton.click(function()
     {
         console.log("submit button clicked")
-        var commentText=$("#commentbox").val()
+        var commentText=$("#commentbox").val();
         var urlpath=location.pathname;
         var currentpath=urlpath.substr(urlpath.lastIndexOf('/')+1);
         inputparameters={"articlePath":currentpath,"commentText":commentText}
