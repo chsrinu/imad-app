@@ -155,7 +155,7 @@ function createtemplate(data,req){
     var Atitle=data[0].title;
     var Acontent=data[0].content;
     var sampletext="sample comment"
-    var comments=" ";
+    var comments="";
     for(i=0;i<data.length;i++)
     {
        comments+= "<li>"+data[i].comments+"</li>"
