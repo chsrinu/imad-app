@@ -33,10 +33,11 @@ if(submitbutton)
                     console.log("Post request successful so updating the same data in html"+data)
                     var rs=JSON.parse(data)
                     console.log(rs)
-                    
-                    for(i=0;i<data.length;i++)
+                    var commentlist=""
+                    for(i=0;i<rs.length;i++)
                     {
-                        console.log(data[i].comments);
+                        console.log(rs[i].comments);
+                        commmentlist="<li>"+rs[i]+"</li>"
                     }
                     $("#commentList").html(commentlist);
                 },
