@@ -193,7 +193,7 @@ function createArticleListTemplate(titledata)
         <body>
             <ul>
                 ${titledata.map(temp => 
-                    `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li>`).join('')}
+                    `<li><a href="http://chsreenivas92.imad.hasura-app.io/articles/${temp.name}">${temp.title}</li><br>`).join('')}
             </ul> </body>
     </html>`;
     return markup;
