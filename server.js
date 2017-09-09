@@ -103,7 +103,7 @@ app.post('/login',function(req,res){
     });
 });
 app.post('/uploadcomment',function(req,res){
-   var title=req.body.articleTitle;
+   var title=req.body.articlePath;
    var comment=req.body.commentText;
    pool.query("insert into articlecomments(articletitle,comments) values($1,$2)",[title,comment],function(err,results){
        if(err)
@@ -137,21 +137,28 @@ app.get('/logout',function(req,res){
     res.send("you are logged out");
 })
 app.get('/articles/:article_name',function(req,res){
-    pool.query("select * from article where name = $1",[req.params.article_name],function(err,results){
+    //pool.query("select title,content,comments from article where name = $1",[req.params.article_name],function(err,results){
+    pool.query("select a.title,a.content,c.comments from article a join articlecomments c on a.Title= c.articletitle where a.Title=$1",[req.params.article_name],function(err,results){
         if(err)
             res.status(500).send(err.toString());
         else
             if(results.rows.length===0)
                 res.status(404).send("resource not found");
             else
-                res.send(createtemplate(results.rows[0],req));
+                res.send(createtemplate(results.rows,req));
     });
     //
 });
+
+
 function createtemplate(data,req){
-    var Atitle=data.title;
-    var Acontent=data.content;
-    
+    var Atitle=data[0].title;
+    var Acontent=data[0].content;
+    var comments="";
+    for(i=0;i<data.length;i++)
+    {
+       comments+= "<li>"+data[0].comments+"</li>"
+    }
     var htmltemplate=`<html>
     <head>
         <title>${Atitle}</title>
@@ -166,13 +173,11 @@ function createtemplate(data,req){
                 htmltemplate+=`<textarea id="commentbox"rows=4 cols=40></textarea>
                             <button id="submitComment">Submit</button>`
             }
-        //get the comments data here itself
-        htmltemplate+=`<ul id="commentsList">
-        <li><p>comment1<p></li>
-        <li><p>comment2<p></li>
-        </ul>
-        <script type="text/javascript" src="/ui/articlescript.js"></script>
         
+        //get the comments data here itself
+        htmltemplate+=`<p><h3>Comments about this Article</h3></p>
+        <ul id="commentsList">`+comments+`</ul>
+        <script type="text/javascript" src="/ui/articlescript.js"></script>
         </body>
         </html>`;
 return htmltemplate;
