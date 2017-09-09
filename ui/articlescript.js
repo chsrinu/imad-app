@@ -19,8 +19,8 @@ if(submitbutton)
         console.log("submit button clicked")
         var commentText=$("#commentbox").val()
         var urlpath=location.pathname;
-        console.log("pathname of url is "+urlpath.substr(urlpath.lastIndexOf('/')+1));
-        inputparameters={"articleTitle":document.title,"commentText":commentText}
+        var currentpath=urlpath.substr(urlpath.lastIndexOf('/')+1);
+        inputparameters={"articlePath":currentpath,"commentText":commentText}
         if(commentText.length === 0)
             alert("Please enter some text before submitting your comment");
         else//we need to update the comment in the database through a post request and reload the comments
