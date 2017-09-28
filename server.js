@@ -143,7 +143,7 @@ app.get('/:articles/:article_name',function(req,res){
             res.status(500).send(err.toString());
         else
             if(results.rows.length===0)
-                res.status(404).send("resource not found");
+                res.status(404).send("resource not found for this user"+req.params.articles);
             else
                 res.send(createtemplate(results.rows,req));
     });
