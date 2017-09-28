@@ -136,7 +136,7 @@ app.get('/logout',function(req,res){
     delete req.session.auth;
     res.send("you are logged out");
 })
-app.get('/articles/:article_name',function(req,res){
+app.get('/:articles/:article_name',function(req,res){
     //pool.query("select title,content,comments from article where name = $1",[req.params.article_name],function(err,results){
     pool.query("select a.title,a.content,c.comments from article a left join articlecomments c on a.name= c.articletitle where a.name=$1",[req.params.article_name],function(err,results){
         if(err)
