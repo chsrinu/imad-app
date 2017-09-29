@@ -1,5 +1,5 @@
 var express = require('express');
-//var morgan = require('morgan');
+var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 var bodyParser = require('body-parser')
@@ -8,7 +8,7 @@ var session= require('express-session')
     
     
 var app = express();
-//app.use(morgan('combined'));
+app.use(morgan('combined'));
 app.use(bodyParser.json())
 app.use(session({
     secret:"$reen!",
